@@ -4,9 +4,9 @@
 
 ## Topics
 
-* [Bindings](./content/schema-transformation.md)
-  * [GraphQL Binding](./content/GraphQL-Binding.md)
-  * [Prisma Binding](./content/Prisma-Binding.md)
+* Bindings
+  * [GraphQL Binding](./content/GraphQL-Binding/GraphQL-Binding.md)
+  * [Prisma Binding](./content/GraphQL-Binding/Prisma-Binding.md)
 * [GraphQL CLI](./content/GraphQL-CLI/Overview.md)
 * [GraphQL Config](./content/GraphQL-Config/Overview.md)
 * [GraphQL Import](./content/GraphQL-Import/Overview.md)
