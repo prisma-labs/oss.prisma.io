@@ -1,12 +1,6 @@
 # Table of contents
 
-* [Overview](README.md)
-
-## Topics
-
-* Bindings
-  * [GraphQL Binding](./content/GraphQL-Binding/GraphQL-Binding.md)
-  * [Prisma Binding](./content/GraphQL-Binding/Prisma-Binding.md)
+* [GraphQL Binding](./content/GraphQL-Binding/GraphQL-Binding.md)
 * [GraphQL CLI](./content/GraphQL-CLI/Overview.md)
 * [GraphQL Config](./content/GraphQL-Config/Overview.md)
 * [GraphQL Import](./content/GraphQL-Import/Overview.md)
