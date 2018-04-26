@@ -10,13 +10,13 @@ The GraphQL CLI is a multi-purpose command line tool for common GraphQL developm
 
 Install with `npm`:
 
-```bash
+```sh
 npm install -g graphql-cli
 ```
 
 Install with `yarn`:
 
-```bash
+```sh
 yarn global add graphq-cli
 ```
 
@@ -84,13 +84,13 @@ When using a command for a specific project, the project needs to be referred to
 
 **Example 1**: Download the GraphQL schema of the the `database` project and store it in `src/generated/prisma.graphql`
 
-```bash
+```sh
 graphql get-schema --project database
 ```
 
 **Example 2**: Add a new endpoint to the `app` project
 
-```bash
+```sh
 graphql add-endpoint --project app
 ```
 
@@ -130,7 +130,7 @@ Now, when executing a CLI command, the values for the variables specified in `.g
 
 **Example 1**: Ping the endpoint of the `app` project
 
-```bash
+```sh
 graphql ping --project app
 ```
 
@@ -138,7 +138,7 @@ Because `API_ENDPOINT` is set to `http://localhost:4000`, the GraphQL CLI will p
 
 **Example 2**: Download the GraphQL schema of the `database` project and store it in the specified path
 
-```bash
+```sh
 graphql get-schema --project database
 ```
 
@@ -182,30 +182,64 @@ You can bootstrap a GraphQL boilerplate using the `graphql create` command.
 
 **Example 1**: Use the interactive prompt to select one of the available boilerplate projects (e.g. Node, TypeScript, React, Vue, ...)
 
-```bash
+```sh
 graphql create myapp
 ```
 
 This creates a new directory called `myapp` where your project files will be located.
 
-**Example 2**: Bootstrap the [`typescript-advanced`](https://github.com/graphql-boilerplates/typescript-graphql-server/tree/master/advanced) boilerplate:
+**Example 2**: Bootstrap the [`typescript-advanced`](https://github.com/graphql-boilerplates/typescript-graphql-server/tree/master/advanced) boilerplate
 
-```bash
+```sh
 graphql create myapp --boilerplate typescript-advanced
 ```
 
 This creates a new directory called `myapp` where your project files will be located.
 
+**Example 3**: Bootstrap the [`react-fullstack-basic`](https://github.com/graphql-boilerplates/react-fullstack-graphql/tree/master/basic) boilerplate
 
-**Example 3**: Bootstrap the [`react-fullstack-basic`](https://github.com/graphql-boilerplates/react-fullstack-graphql/tree/master/basic) boilerplate:
-
-```bash
+```sh
 graphql create myapp --boilerplate react-fullstack-basic
 ```
 
 This creates a new directory called `myapp` where your project files will be located.
 
 ### Schema handling
+
+#### Downloading a GraphQL schema
+
+The `get-schema` command can be used to download the GraphQL schema from a GraphQL API via an [introspection](http://graphql.org/learn/introspection/) query.
+
+**Example 1**: Download the GraphQL schema from the `app` project specified in `.graphqlconfig` and store it in `src/schema.graphql`
+
+Assume the following `.graphqlconfig`:
+
+```yaml
+projects:
+  app:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: http://localhost:4000
+```
+
+You can use the following command to download the GraphQL schema from `http://localhost:4000` and store it in `src/schema.graphql`:
+
+```sh
+graphql get-schema --project app
+```
+
+**Example 2**: Download the schema from a Prisma API (deployed to a Prisma Sandbox) that requires authentication via an API token passed in the `Authorization` header and store it in `prisma.graphql`
+
+```
+graphql get-schema -e https://eu1.prisma.sh/public-lucksight-113/myservice/dev  --header Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJkYXRhYmFzZUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTI0NzUyNjQyLCJleHAiOjE1MjUzNTc0NDJ9.ricwDHJoHtmYN8ZD4ldjH3ek_YMIUJqervXZ0ApjYpU --output prisma.graphql
+```
+
+**Example 3**: Download the schema from a Prisma API (deployed to a Prisma Sandbox) that requires authentication via an API token passed in the `Authorization` header and store it in `prisma.json` formatted as JSON
+
+```
+graphql get-schema -e https://eu1.prisma.sh/public-lucksight-113/myservice/dev  --header Authorization=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJkYXRhYmFzZUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTI0NzUyNjQyLCJleHAiOjE1MjUzNTc0NDJ9.ricwDHJoHtmYN8ZD4ldjH3ek_YMIUJqervXZ0ApjYpU --output prisma.graphql --json
+```
 
 ### Code generation
 
