@@ -96,7 +96,9 @@ graphql add-endpoint --project app
 
 #### Environment variables
 
-The GraphQL CLI supports usage of `.env` files for setting environment variables.
+Instead of hardcoding value in `.graphqlconfig`, you can use environment variables. To learn more about the syntax, check out the [corresponding section](../GraphQL-Config/Overview#environment-variables) in the GraphQL Config docs.
+
+ GraphQL CLI supports usage of `.env` files for setting environment variables.
 
 ## Workflows
 
