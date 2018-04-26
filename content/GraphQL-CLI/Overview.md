@@ -8,7 +8,7 @@ The GraphQL CLI is a multi-purpose command line tool for common GraphQL developm
 
 ## Install
 
-Install with `**npm**`:
+Install with **`npm`**:
 
 ```sh
 npm install -g graphql-cli
