@@ -4,7 +4,7 @@
 
 ## Description
 
-The GraphQL CLI is a multi-purpose command line tool for common GraphQL development workflows. Think of it as a "Swiss Army Knife" for GraphQL.
+The GraphQL CLI is a multi-purpose command line tool for common GraphQL development workflows. Think of it as a "Swiss Army Knife" for GraphQL that provides features like code generation, schema handling, bootstrapping, project configuration and a lot more.
 
 ## Install
 
