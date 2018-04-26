@@ -10,13 +10,13 @@ The GraphQL CLI is a multi-purpose command line tool for common GraphQL developm
 
 Install with `npm`:
 
-```sh
+```bash
 npm install -g graphql-cli
 ```
 
 Install with `yarn`:
 
-```sh
+```bash
 yarn global add graphq-cli
 ```
 
@@ -84,13 +84,13 @@ When using a command for a specific project, the project needs to be referred to
 
 **Example 1*: Download the GraphQL schema of the the `database` project and store it in `src/generated/prisma.graphql`
 
-```sh
+```bash
 graphql get-schema --project database
 ```
 
 **Example 2**: Add a new endpoint to the `app` project
 
-```sh
+```bash
 graphql add-endpoint --project app
 ```
 
