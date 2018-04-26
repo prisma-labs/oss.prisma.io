@@ -57,7 +57,9 @@ Examples:
 
 ### Using with GraphQL Config
 
-Most commands of the GraphQL CLI require the presence of a `.graphqlconfig` file in the current directory. Learn more about using the GraphQL CLI for _managing_ your `.graphqlconfig` in the [**Managing .graphqlconfig**](#managing-graphqlconfig) section.
+Most commands of the GraphQL CLI require the presence of a `.graphqlconfig` file in the current directory.
+
+> Learn more about using the GraphQL CLI for _managing_ your `.graphqlconfig` in the [**Managing .graphqlconfig**](#managing-graphqlconfig) section.
 
 #### Referencing a project with `--project`
 
@@ -65,7 +67,7 @@ The `--project` option which can be provided to most commands refers to a specif
 
 Here is an example of what a `.graphqlconfig` with two projects might look like:
 
-```yml
+```yaml
 projects:
   app:
     schemaPath: src/schema.graphql
