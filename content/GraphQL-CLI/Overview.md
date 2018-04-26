@@ -22,7 +22,7 @@ yarn global add graphq-cli
 
 ## Usage
 
-The `graphql-cli` can be used via `graphql` or the short `gql` commands.
+The `graphql-cli` can be used via `graphql` or the shorter `gql` command.
 
 ### Command overview
 
@@ -57,11 +57,11 @@ Examples:
 
 ### Using with GraphQL Config
 
-Most commands of the GraphQL CLI require the presence of a `.graphqlconfig` file in the current directory. Learn more about using the GraphQL CLI for managing your `.graphqlconfig` in the [Managing .graphqlconfig](#managing-.graphqlconfig) section.
+Most commands of the GraphQL CLI require the presence of a `.graphqlconfig` file in the current directory. Learn more about using the GraphQL CLI for _managing_ your `.graphqlconfig` in the [**Managing .graphqlconfig**](#managing-graphqlconfig) section.
 
 #### Referencing a project with `--project`
 
-The `--project` option which can be provided to most commands refers to a specific _project_ in defined in `.graphqlconfig`.
+The `--project` option which can be provided to most commands refers to a specific _project_ defined in `.graphqlconfig`.
 
 Here is an example of what a `.graphqlconfig` with two projects might look like:
 
