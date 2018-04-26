@@ -82,7 +82,7 @@ projects:
 
 When using a command for a specific project, the project needs to be referred to by its _key_ in the `projects` map.
 
-**Example 1*: Download the GraphQL schema of the the `database` project and store it in `src/generated/prisma.graphql`
+**Example 1**: Download the GraphQL schema of the the `database` project and store it in `src/generated/prisma.graphql`
 
 ```bash
 graphql get-schema --project database
