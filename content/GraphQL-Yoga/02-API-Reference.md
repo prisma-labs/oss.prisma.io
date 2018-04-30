@@ -16,16 +16,10 @@ The `props` argument has the following keys:
 | `resolvers`  | Object  |  `null`  | Contains resolvers for the fields specified in `typeDefs` (required if `schema` is not provided) |
 | `schema`  | Object |  `null`  | An instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) (required if `typeDefs` and `resolvers` are not provided) |
 | `context`  | Object or Function  |  `{}`  | Contains custom data being passed through your resolver chain. This can be passed in as an object, or as a Function with the signature `(req: Request) => any`  |
-| `resolverValidationOptions`  |  |  |  |
-| `directiveResolvers`  |  |  |  |
-| `schemaDirectives`  |  |  |  |
-| `directiveResolvers`  |  |  |  |
-| `middlewares`  |  |  |  |
-
-> There are two ways of providing the [GraphQL schema](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e) information to the `constructor`:
->
-> 1. Provide `typeDefs` and `resolvers` and omit the `schema`, in this case `graphql-yoga` will construct the `GraphQLSchema` instance using [`makeExecutableSchema`](https://www.apollographql.com/docs/graphql-tools/generate-schema.html#makeExecutableSchema) from [`graphql-tools`](https://github.com/apollographql/graphql-tools).
-> 1. Provide the `schema` directly and omit `typeDefs` and `resolvers`.
+| `directiveResolvers`  | Object  | `null` |  A map of directive resolvers where the `key` of each field corresponds to the name of a directive and the value the belonging directive resolver. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#What-about-directiveResolvers). |
+| `schemaDirectives`  | Object | `null` | A map of schema directives where the `key` of each field corresponds to the name of a directive and the value the belonging `SchemaDirectiveVisitor`. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#Using-schema-directives). |
+| `middlewares`  | [Function] |  | A list of middleware functions based on [`graphql-middleware`](https://github.com/graphcool/graphql-middleware). |
+| `resolverValidationOptions` | Object | `null` | A list of validation options for your resolvers. More info [here](https://www.apollographql.com/docs/graphql-tools/resolvers.html#addResolveFunctionsToSchema). |
 
 Here is example of creating a new server:
 
@@ -51,9 +45,12 @@ const server = new GraphQLServer({ typeDefs, resolvers })
 start(options: Options, callback: ((options: Options) => void) = (() => null)): Promise<void>
 ```
 
-Once your `GraphQLServer` is instantiated, you can call the `start` method on it. It takes two arguments: `options`, the options object defined above, and `callback`, a function that's invoked right before the server is started. As an example, the `callback` can be used to print information that the server was now started.
+Once your `GraphQLServer` is instantiated, you can call the `start` method on it. It takes two arguments:
 
-The `options` object has the following fields:
+- `options`: The `options` object defined below.
+- `callback`: A function that's invoked right before the server is started. As an example, the `callback` can be used to print information that the server was now started.
+
+The `options` argument has the following keys:
 
 | Key | Type | Default | Note |
 | ---  | --- | --- | --- |
@@ -78,6 +75,8 @@ Additionally, the `options` object exposes these `apollo-server` options:
 | `formatParams` | Function  | A function applied for each query in a batch to format parameters before execution |
 | `formatResponse` | Function | A function applied to each response after execution |
 | `debug` | boolean  | Print additional debug logging if execution errors occur |
+
+### Example
 
 ```ts
 const options = {
