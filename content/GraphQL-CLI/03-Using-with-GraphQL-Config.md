@@ -39,7 +39,7 @@ graphql add-endpoint --project app
 
 ## Environment variables
 
-Instead of hardcoding value in `.graphqlconfig`, you can use environment variables. To learn more about the required syntax, check out the [corresponding section](../GraphQL-Config/Overview.md#environment-variables) in the GraphQL Config docs.
+Instead of hardcoding values in `.graphqlconfig`, you can use environment variables. To learn more about the required syntax, check out the [corresponding section](../GraphQL-Config/Overview.md#environment-variables) in the GraphQL Config docs.
 
 ### Usage of `.env` files
 
