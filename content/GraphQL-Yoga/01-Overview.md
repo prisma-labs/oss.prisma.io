@@ -22,12 +22,12 @@ GraphQL Yoga is based on the following libraries & tools:
 ## Features
 
 * GraphQL spec-compliant
-* File upload
+* File uploadgit st
 * GraphQL Subscriptions
 * TypeScript typings
 * GraphQL Playground
 * Extensible via Express middlewares
-* Apollo Tracing
+* Query Performance Tracing (via Apollo Tracing)
 * Accepts both `application/json` and `application/graphql` content-type
 * Runs everywhere: Can be deployed via `now`, `up`, AWS Lambda, Heroku etc
 
@@ -68,7 +68,7 @@ const server = new GraphQLServer({ typeDefs, resolvers })
 server.start(() => console.log('Server is running on localhost:4000'))
 ```
 
-> To get started with `graphql-yoga`, follow the instructions in the READMEs of the [examples](./examples).
+> See [here](./04-Examples.md) for more examples and use cases.
 
 ## Workflow
 
