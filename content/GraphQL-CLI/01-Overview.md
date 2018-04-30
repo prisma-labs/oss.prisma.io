@@ -24,7 +24,7 @@ yarn global add graphq-cli
 
 The `graphql-cli` can be used via `graphql` or the shorter `gql` command.
 
-### Command overview
+## Command overview
 
 ```
 Usage: graphql [command]
