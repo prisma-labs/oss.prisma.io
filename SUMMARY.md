@@ -10,3 +10,6 @@
 * [GraphQL Playground](./content/GraphQL-Playground/Overview.md)
 * [GraphQL Request](./content/GraphQL-Request/Overview.md)
 * [GraphQL Yoga](./content/GraphQL-Yoga/Overview.md)
+  * [API Reference](./content/GraphQL-Yoga/02-API-Reference.md)
+  * [Deployment](./content/GraphQL-Yoga/03-Deployment.md)
+  * [Examples](./content/GraphQL-Yoga/04-Examples.md)

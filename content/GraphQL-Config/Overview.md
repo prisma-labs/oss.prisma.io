@@ -2,4 +2,4 @@
 
 ## Projects
 
-## Environment variables
+# GraphQL Config
