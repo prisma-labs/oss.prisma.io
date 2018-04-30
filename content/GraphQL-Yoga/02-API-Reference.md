@@ -1,16 +1,16 @@
 # API Reference
 
-## `GraphQLServer`
+## GraphQLServer
 
-### `constructor`
+### constructor
 
 ```ts
 constructor(props: Props): GraphQLServer
 ```
 
-The `props` argument accepts the following fields:
+The `props` argument has the following keys:
 
-| Key | Type | Default | Note |
+| **Key** | **Type** | **Default** | **Note** |
 | ---  | --- | --- | --- |
 | `typeDefs` | String  |  `null` | Contains GraphQL type definitions in [SDL](https://blog.graph.cool/graphql-sdl-schema-definition-language-6755bcb9ce51) or file path to type definitions (required if `schema` is not provided \*)  |
 | `resolvers`  | Object  |  `null`  | Contains resolvers for the fields specified in `typeDefs` (required if `schema` is not provided \*) |
@@ -40,7 +40,7 @@ const resolvers = {
 const server = new GraphQLServer({ typeDefs, resolvers })
 ```
 
-## `server.start(...)`
+## start
 
 ```ts
 start(options: Options, callback: ((options: Options) => void) = (() => null)): Promise<void>
