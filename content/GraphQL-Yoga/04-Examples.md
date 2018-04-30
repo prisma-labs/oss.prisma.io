@@ -2,7 +2,7 @@
 
 ## Example projects
 
-There are several [examples](https://github.com/graphcool/graphql-yoga/tree/master/examples) demonstrating how to quickly get started with GraphQL Yoga, for example:
+There are several [examples](https://github.com/graphcool/graphql-yoga/tree/master/examples) demonstrating how to quickly get started with GraphQL Yoga. For example:
 
 - [hello-world](https://github.com/graphcool/graphql-yoga/tree/master/examples/hello-world): Basic setup for building a schema and allowing for a `hello` query.
 - [subscriptions](https://github.com/graphcool/graphql-yoga/tree/master/examples/subscriptions): Basic setup for using subscriptions with a counter that increments every 2 seconds and triggers a subscriptions.

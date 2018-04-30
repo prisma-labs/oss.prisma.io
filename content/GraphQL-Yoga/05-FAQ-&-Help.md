@@ -36,4 +36,6 @@ Any middlewares you add to that route, will be added right before the `apollo-se
 
 ## Help
 
-If you have are experiencing issues with 
+If you have are experiencing bugs or other problems with `graphql-yoga`, please [open a new issue](https://github.com/graphcool/graphql-yoga/issues/new) in the GitHub repository.
+
+For further questions and general discussions, you can join the [Prisma Forum](https://www.graph.cool/forum/) or the [Prisma Slack](https://slack.prisma.io).
