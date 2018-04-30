@@ -8,7 +8,7 @@
 constructor(props: Props): GraphQLServer
 ```
 
-The `props` argument has the following keys:
+The `props` argument accepts the following keys:
 
 - `typeDefs`: Contains GraphQL type definitions in [SDL](https://blog.graph.cool/graphql-sdl-schema-definition-language-6755bcb9ce51) or file path to type definitions (required if `schema` is not provided).
 - `resolvers`: Contains resolvers for the fields specified in `typeDefs` (required if `schema` is not provided).
@@ -30,7 +30,7 @@ The `props` argument has the following keys:
 | `middlewares`  | [Function] |  | A list of middleware functions based on [`graphql-middleware`](https://github.com/graphcool/graphql-middleware). |
 | `resolverValidationOptions` | Object | `null` | A list of validation options for your resolvers. More info [here](https://www.apollographql.com/docs/graphql-tools/resolvers.html#addResolveFunctionsToSchema). | -->
 
-Here is example of creating a new server:
+Here is simple example of using the `GraphQLServer` constructor:
 
 ```js
 const typeDefs = `
@@ -59,9 +59,16 @@ Once your `GraphQLServer` is instantiated, you can call the `start` method on it
 - `options`: The `options` object defined below.
 - `callback`: A function that's invoked right before the server is started. As an example, the `callback` can be used to print information that the server was now started.
 
-The `options` argument has the following keys:
+The `options` argument accepts the following keys:
 
-| Key | Type | Default | Note |
+- `port` (default: `4000`): Determines the port your server will be listening on (note that you can also specify the port by setting the `PORT` environment variable).
+- `cors`: Contains [configuration options](https://github.com/expressjs/cors#configuration-options) for [cors](https://github.com/expressjs/cors).
+- `uploads`: Allows to specify maximum file sizes:
+  - `maxFieldSize`:
+  - `maxFileSize`: 
+  - `maxFiles`: 
+
+<!-- | Key | Type | Default | Note |
 | ---  | --- | --- | --- |
 | `cors` | Object |  `null` | Contains [configuration options](https://github.com/expressjs/cors#configuration-options) for [cors](https://github.com/expressjs/cors) |
 | `tracing`  | Boolean or String  |  `'http-header'`  | Indicates whether [Apollo Tracing](https://github.com/apollographql/apollo-tracing) should be en- or disabled for your server (if a string is provided, accepted values are: `'enabled'`, `'disabled'`, `'http-header'`) |
@@ -69,7 +76,7 @@ The `options` argument has the following keys:
 | `endpoint`  | String  |  `'/'`  | Defines the HTTP endpoint of your server |
 | `subscriptions` | String or `false`  |  `'/'`  | Defines the subscriptions (websocket) endpoint for your server; setting to `false` disables subscriptions completely |
 | `playground` | String or `false` |  `'/'`  | Defines the endpoint where you can invoke the [Playground](https://github.com/graphcool/graphql-playground); setting to `false` disables the playground endpoint |
-| `uploads` | Object or `false`  | `null`  | Provides information about upload limits; the object can have any combination of the following three keys: `maxFieldSize`, `maxFileSize`, `maxFiles`; each of these have values of type Number; setting to `false` disables file uploading |
+| `uploads` | Object or `false`  | `null`  | Provides information about upload limits; the object can have any combination of the following three keys: `maxFieldSize`, `maxFileSize`, `maxFiles`; each of these have values of type Number; setting to `false` disables file uploading | -->
 
 Additionally, the `options` object exposes these `apollo-server` options:
 
