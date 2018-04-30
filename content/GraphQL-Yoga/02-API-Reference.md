@@ -72,7 +72,7 @@ The `options` argument accepts the following keys:
 - `getEndpoint` (default: `false`): Adds a GraphQL HTTP GET endpoint to your server (defaults to `endpoint` if `true`) (used for leveraging CDN level caching). Setting to `false` means the web server only accepts POST requests.
 - `bodyParserOptions`: Lets you pass through options for the JSON `body-parser` used by Express. More info [here](https://github.com/expressjs/body-parser#options).
 
-Note that the `options` argument also inherits a number of fields from `apollo-server`. Here is an overview of the keys of the inherited fields (source: [Apollo Server docs](https://github.com/apollographql/apollo-server#options)):
+Note that the `options` argument also exposes a number of fields from `apollo-server`. Here is an overview of the keys of the inherited fields (source: [Apollo Server docs](https://github.com/apollographql/apollo-server#options)):
 
 * `rootValue`: The value passed to the first resolve function.
 * `formatError`: A function to apply to every error before sending the response to clients.
