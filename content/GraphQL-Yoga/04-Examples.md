@@ -14,7 +14,7 @@ You can also check out the [GraphQL boilerplates](https://github.com/graphql-boi
 
 The easiest way to get started with a GraphQL boilerplate project is by using the [GraphQL CLI](../GraphQL-CLI/01-Overview.md):
 
-```bash
+```sh
 # Install the GraphQL CLI
 npm install -g graphql-cli
 
