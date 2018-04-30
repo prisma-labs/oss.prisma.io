@@ -10,7 +10,16 @@ constructor(props: Props): GraphQLServer
 
 The `props` argument has the following keys:
 
-| **Key** | **Type** | **Default** | **Note** |
+- `typeDefs`: Contains GraphQL type definitions in [SDL](https://blog.graph.cool/graphql-sdl-schema-definition-language-6755bcb9ce51) or file path to type definitions (required if `schema` is not provided).
+- `resolvers`: Contains resolvers for the fields specified in `typeDefs` (required if `schema` is not provided).
+- `schema`: An instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) (required if `typeDefs` and `resolvers` are not provided).
+- `context`: Contains custom data being passed through your resolver chain. This can be passed in as an object, or as a function with the signature `(req: Request) => any`.
+- `schemaDirectives`: A map of schema directives where the `key` of each field corresponds to the name of a directive and the value the belonging `SchemaDirectiveVisitor`. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#Using-schema-directives).
+- `directiveResolvers`: A map of directive resolvers where the `key` of each field corresponds to the name of a directive and the value the belonging directive resolver. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#What-about-directiveResolvers).
+- `middlwares`:  A list of middleware functions that are based on [`graphql-middleware`](https://github.com/graphcool/graphql-middleware).
+- `resolverValidationOptions`: A list of validation options for your resolvers. More info [here](https://www.apollographql.com/docs/graphql-tools/resolvers.html#addResolveFunctionsToSchema).
+
+<!-- | **Key** | **Type** | **Default** | **Note** |
 | ---  | --- | --- | --- |
 | `typeDefs` | String  |  `null` | Contains GraphQL type definitions in [SDL](https://blog.graph.cool/graphql-sdl-schema-definition-language-6755bcb9ce51) or file path to type definitions (required if `schema` is not provided)  |
 | `resolvers`  | Object  |  `null`  | Contains resolvers for the fields specified in `typeDefs` (required if `schema` is not provided) |
@@ -19,7 +28,7 @@ The `props` argument has the following keys:
 | `directiveResolvers`  | Object  | `null` |  A map of directive resolvers where the `key` of each field corresponds to the name of a directive and the value the belonging directive resolver. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#What-about-directiveResolvers). |
 | `schemaDirectives`  | Object | `null` | A map of schema directives where the `key` of each field corresponds to the name of a directive and the value the belonging `SchemaDirectiveVisitor`. More info [here](https://www.apollographql.com/docs/graphql-tools/schema-directives.html#Using-schema-directives). |
 | `middlewares`  | [Function] |  | A list of middleware functions based on [`graphql-middleware`](https://github.com/graphcool/graphql-middleware). |
-| `resolverValidationOptions` | Object | `null` | A list of validation options for your resolvers. More info [here](https://www.apollographql.com/docs/graphql-tools/resolvers.html#addResolveFunctionsToSchema). |
+| `resolverValidationOptions` | Object | `null` | A list of validation options for your resolvers. More info [here](https://www.apollographql.com/docs/graphql-tools/resolvers.html#addResolveFunctionsToSchema). | -->
 
 Here is example of creating a new server:
 
