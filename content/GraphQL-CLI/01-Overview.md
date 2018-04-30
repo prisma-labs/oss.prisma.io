@@ -1,6 +1,6 @@
 # GraphQL CLI
 
-[**Show `GraphQL CLI` on GitHub**](https://github.com/graphql-cli/graphql-cli)
+[**Open on GitHub**](https://github.com/graphql-cli/graphql-cli)
 
 ## Description
 
