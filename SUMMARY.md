@@ -1,6 +1,7 @@
 # Table of contents
 
-* [GraphQL Binding](./content/GraphQL-Binding/GraphQL-Binding.md)
+* [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
+  * [CLI](./content/GraphQL-Binding/02-CLI.md)
 * [GraphQL CLI](./content/GraphQL-CLI/01-Overview.md)
   * [Command Reference](./content/GraphQL-CLI/02-Command-Reference.md)
   * [Using with GraphQL Config](./content/GraphQL-CLI/03-Using-with-GraphQL-Config.md)
