@@ -110,6 +110,6 @@ const options = {
 server.start(options, ({ port }) => console.log(`Server started, listening on port ${port} for incoming requests.`))
 ```
 
-## `PubSub`
+## PubSub
 
-See the original documentation in [`graphql-subscriptions`](https://github.com/apollographql/graphql-subscriptions).
+See the original documentation in [`graphql-subscriptions`](https://github.com/apollographql/graphql-subscriptions) GtiHub repository and in the [Apollo Docs](https://www.apollographql.com/docs/graphql-subscriptions/).
