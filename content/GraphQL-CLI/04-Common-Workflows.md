@@ -95,8 +95,19 @@ projects:
 graphql diff --endpoint dev --target prod --project hello-world
 ```
 
+## Code generation
+
+You can use the `typegen` and `codegen` commands to generate code (e.g. TypeScript type definitions) for the types of your GraphQL schema or related to GraphQL bindings.
+
+### Generating type definitions for a GraphQL binding
+
+
+
+
+### Generating type definitions for a GraphQL schema
+
+
 <!-- 
-### Code generation 
 
 ### Managing .graphqlconfig
 
