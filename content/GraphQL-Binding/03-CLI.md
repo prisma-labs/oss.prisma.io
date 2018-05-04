@@ -25,13 +25,13 @@ Options:
   --help                Show help                                      [boolean]
   --version             Show version number                            [boolean]
   --input, -i           Path to schema.js or schema.ts file            [string] [required]
-  --generator, -g       Type of the generator. Available generators:
+  --language, -l        Language of the generator. Available generators:
                         typescript, javascript                         [string] [required]
   --outputBinding, -b   Output binding. Example: binding.ts            [string] [required]
   --outputTypedefs, -t  Output type defs. Example: typeDefs.graphql    [string]
 ```
 
-## Usage with GraphQL Confing
+## Usage with GraphQL Config
 
 The `graphql-binding` CLI integrates with GraphQL Config. This means instead of passing arguments to the command, you can write a `.graphqlconfig.yml` file which will be read by the CLI.
 
@@ -43,8 +43,8 @@ projects:
     schemaPath: schema.graphql
     extensions:
       codegen:
-        - generator: codegen
-          language: typescript
+        - generator: graphql-binding
+          language: javascript
           output:
             binding: mybinding.ts
 ```
