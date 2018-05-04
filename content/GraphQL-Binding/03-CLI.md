@@ -44,7 +44,7 @@ projects:
     extensions:
       codegen:
         - generator: graphql-binding
-          language: javascript
+          language: typescript
           output:
             binding: mybinding.ts
 ```
