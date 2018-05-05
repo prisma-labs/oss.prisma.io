@@ -44,7 +44,7 @@ projects:
     extensions:
       codegen:
         - generator: graphql-binding
-          language: javascript
+          language: typescript
           output:
             binding: mybinding.ts
 ```
@@ -54,6 +54,6 @@ Invoking simply `graphql prepare` in a directory where the above `.graphqlconfig
 ```sh
 graphql-binding \
   --language typescript \
-  --input schema.graphql \
-  --outputBinding mybinding.ts \
+  --input schema.graphql \ // TODO: does this work or should this be an executable schema?
+  --outputBinding mybinding.ts
 ```
