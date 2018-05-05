@@ -10,6 +10,7 @@
   * [Common Workflows](./content/GraphQL-CLI/04-Common-Workflows.md)
 * [GraphQL Config](./content/GraphQL-Config/Overview.md)
 * [GraphQL Import](./content/GraphQL-Import/Overview.md)
+* [GraphQL Middleware](./content/GraphQL-Middleware/Overview.md)
 * [GraphQL Playground](./content/GraphQL-Playground/Overview.md)
 * [GraphQL Request](./content/GraphQL-Request/Overview.md)
 * [GraphQL Yoga](./content/GraphQL-Yoga/01-Overview.md)
