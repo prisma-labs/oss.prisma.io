@@ -2,6 +2,8 @@
 
 [![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
 
+[<img src="../assets/view-on-github.png">](https://github.com/graphql-binding/graphql-binding)
+
 ## Description
 
 GraphQL bindings provide a convenient way for interacting with a GraphQL API from your programming language: Instead of sending queries as strings via HTTP (e.g. with JavaScript's `fetch`), you invoke a binding function which constructs the query and sends it to the GraphQL server for you.
