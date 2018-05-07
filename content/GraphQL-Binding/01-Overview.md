@@ -1,6 +1,6 @@
 # GraphQL Binding
 
-![](../../assets/view-on-github.png)
+![](../assets/view-on-github.png)
 
 ## Description
 
