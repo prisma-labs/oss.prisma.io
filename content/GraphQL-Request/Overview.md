@@ -204,10 +204,32 @@ const query = `{
 client.request(query).then(data => console.log(data))
 ```
 
+### Using `graphql-tag`
+
+You can use `graphql-tag` to add syntax highlighting to your GraphQL queries. Since it transforms [GraphQL SDL](https://blog.graph.cool/graphql-sdl-schema-definition-language-6755bcb9ce51) into an [AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree), you need to change it back into GraphQL SDL before passing it to `request`. You can do that by using `print`.
+
+```js
+import { GraphQLClient } from 'graphql-request';
+import gql from 'graphql-tag';
+import { print } from 'graphql';
+
+const query = gql`{
+  Movie(title: "Inception") {
+    releaseDate
+    actors {
+      name
+    }
+  }
+}`
+
+const client = new GraphQLClient('https://api.graph.cool/simple/v1/movies')
+
+client.request(print(query)).then(data => console.log(data))
+```
+
 ### More examples coming soon...
 
 * Fragments
-* Using [`graphql-tag`](https://github.com/apollographql/graphql-tag)
 * Typed Typescript return values
 
 ## FAQ
