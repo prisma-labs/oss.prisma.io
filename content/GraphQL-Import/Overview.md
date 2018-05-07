@@ -1,6 +1,10 @@
-# graphql-import
+# GraphQL Import
 
-[`graphql-import`](https://github.com/graphcool/graphql-import) is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
+🗂 **Compose GraphQL Schemas**
+
+[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-import)
+
+`graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
 
 ## Install
 
@@ -28,10 +32,10 @@ Assume the following directory structure:
 .
 ├── a.graphql
 ├── b.graphql
-└── c.graphql
+└── o.graphql
 ```
 
-`a.graphql`
+🅰️ `a.graphql`
 
 ```graphql
 # import B from "b.graphql"
@@ -44,26 +48,26 @@ type A {
 }
 ```
 
-`b.graphql`
+🅱️ `b.graphql`
 
 ```graphql
-# import C from 'c.graphql'
+# import O from 'o.graphql'
 
 type B {
-  c: C
+  o: O
   hello: String!
 }
 ```
 
-`c.graphql`
+🅾️ `o.graphql`
 
 ```graphql
-type C {
+type O {
   id: ID!
 }
 ```
 
-Running `console.log(importSchema('a.graphql'))` procudes the following output:
+Running `console.log(importSchema('a.graphql'))` produces the following output:
 
 ```graphql
 type A {
@@ -73,11 +77,11 @@ type A {
 }
 
 type B {
-  c: C
+  o: O
   hello: String!
 }
 
-type C {
+type O {
   id: ID!
 }
 ```
