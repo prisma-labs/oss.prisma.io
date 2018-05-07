@@ -1,12 +1,12 @@
 # GraphQL Binding
 
-[![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
+<!-- [![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
 
 [<img src="../assets/view-on-github.png" />](https://github.com/graphql-binding/graphql-binding)
 
 [<img src="../assets/view-on-github.png" />](https://github.com/graphql-binding/graphql-binding)
 
-<a href="https://github.com/graphql-binding/graphql-binding"><img src="../assets/view-on-github.png" /></a>
+<a href="https://github.com/graphql-binding/graphql-binding"><img src="../assets/view-on-github.png" /></a> -->
 
 ## Description
 
