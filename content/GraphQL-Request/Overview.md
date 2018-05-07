@@ -100,6 +100,8 @@ client.request(query).then(data => console.log(data))
 
 ### Using variables
 
+With `request`:
+
 ```js
 import { request } from 'graphql-request'
 
@@ -117,6 +119,29 @@ const variables = {
 }
 
 request('my-endpoint', query, variables).then(data => console.log(data))
+```
+
+With `GraphQLClient`:
+
+```js
+import { GraphQLClient } from 'graphql-request';
+
+const query = `query getMovie($title: String!) {
+  Movie(title: $title) {
+    releaseDate
+    actors {
+      name
+    }
+  }
+}`
+
+const variables = {
+  title: 'Inception',
+}
+
+const client = new GraphQLClient('https://api.graph.cool/simple/v1/movies')
+
+client.request(query, variables).then(data => console.log(data))
 ```
 
 ### Error handling
