@@ -32,7 +32,7 @@ Assume the corresponding GraphQL API is deployed to this URL: `https://example.o
 
 #### Extending the `Binding` class
 
-The most straightforward to create your own binding for this API is by turning the deployed GraphQL API into a [remote executable schema]() using the `makeRemoteExecutableSchema` function from the `graphql-tools` library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
+The most straightforward to create your own binding for this API is by turning the deployed GraphQL API into a [remote executable schema](https://blog.graph.cool/how-do-graphql-remote-schemas-work-7118237c89d7) using the `makeRemoteExecutableSchema` function from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
 
 Here's what that could look like:
 
@@ -110,7 +110,7 @@ The `subscription` property represents the fields of the `Subscription` type fro
 
 #### Generating TypeScript type definitions for the `UserServiceBinding` class
 
-Once you have implemented your `UserServiceBinding` class, the [`graphql-binding` CLI](./03-CLI.md) helps you to generate the TypeScript type definitions for it. 
+Once you have implemented your `UserServiceBinding` class, the [`graphql-binding` CLI](./03-CLI.md) helps you to generate the TypeScript type definitions for it.
 
 Note that the CLI requires you to make an executable instance of the GraphQL schema available through a Node script. In this example, this Node script could look as follows:
 
@@ -155,6 +155,7 @@ projects:
             binding: mybinding.ts
 ```
 
-Now invoking the `graphql codegen` command has the same effect as using the `graphql-binding` CLI with the `language`, `input` and `outputBinding` arguments. 
+Now invoking the `graphql codegen` command has the same effect as using the `graphql-binding` CLI with the `language`, `input` and `outputBinding` arguments.
 
 #### Adding custom functionality to your binding
+

@@ -1,5 +1,7 @@
 # GraphQL Binding
 
+![](../assets/view-on-github.svg)
+
 ## Description
 
 GraphQL bindings provide a convenient way for interacting with a GraphQL API from your programming language: Instead of sending queries as strings via HTTP (e.g. with JavaScript's `fetch`), you invoke a binding function which constructs the query and sends it to the GraphQL server for you.
@@ -39,7 +41,7 @@ type Mutation {
 
 The server's API accepts exacrtly two operations:
 
-- A query to retrive all `User`s
+- A query to retrieve all `User`s
 - A mutation to create a new `User`
 
 Now, assume this GraphQL API would be available as a GraphQL binding (learn how to create your own binding [here](./04-Creating-your-own-Binding.md)) through an NPM package called `graphql-binding-users`.
@@ -151,6 +153,6 @@ const resolvers = {
 
 For the `users` and `createUserWithRandomName` resolvers, the binding will behave exactly like in the previous example and construct a GraphQL query/mutation to send to the API.
 
-The big difference to the previous example with the simple Node script is that now the selection set is not _hardcoded_ any more. Instead, it is provided through the `info` object of the incoming query/mutation. The `info` object carries the [abstract syntax tree](https://medium.com/@cjoudrey/life-of-a-graphql-query-lexing-parsing-ca7c5045fad8) (AST) of the incoming GraphQL query, meaning it knows the requested fields as well as any arguments and can simply pass them along to the underlying GraphQL API - this is called query [delegation](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405).
+The big difference to the previous example with the simple Node script is that now the selection set is not _hardcoded_ any more. Instead, it is provided through the `info` object of the incoming query/mutation. The [`info`]((https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)) object carries the [abstract syntax tree](https://medium.com/@cjoudrey/life-of-a-graphql-query-lexing-parsing-ca7c5045fad8) (AST) of the incoming GraphQL query, meaning it knows the requested fields as well as any arguments and can simply pass them along to the underlying GraphQL API - this is called query [delegation](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405).
 
 > **Note**: To learn more about the `info`object, check out this deep-dive [article](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) into its structure as well as its role during the query resolution process.

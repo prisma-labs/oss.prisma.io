@@ -38,7 +38,7 @@ constructor({schema, fragmentReplacements, before}: BindingOptions)
 
 - `schema` (required): An executable instance of `GraphQLSchema` which represents the API that should be abstracted.
 - `fragmentReplacements`: TODO
-- `before`: TODO
+- `before`: A function that's executed _before_ a query or mutation is sent to the API
 
 ### Properties
 
