@@ -30,13 +30,11 @@ Assume the corresponding GraphQL API is deployed to this URL: `https://example.o
 
 ### Constructor
 
-Creates a new instance of `Delegate`.
-
-#### API
-
 ```ts
 constructor({schema, fragmentReplacements, before}: BindingOptions)
 ```
+
+Creates a new instance of `Delegate`.
 
 - `schema` (required): An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted.
 - `fragmentReplacements`: A GraphQL fragment that's applied to each query, subscription or mutation sent to the abstracted API.
@@ -59,7 +57,7 @@ const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
 // Create the `before` function
 const before = () => console.log(`Sending a request to the GraphQL API ...`)
 
-const delegate = new Delegate 
+const delegate = new Delegate({ schema, before })
 ```
 
 ### Properties
@@ -108,15 +106,13 @@ userServiceDelegate.request(query, variables)
 
 #### delegate
 
-`delegate` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a query or mutation to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
-
-##### API
-
 ```ts
 delegate(operation: QueryOrMutation, fieldName: string, args: {
     [key: string]: any;
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<any>;
 ```
+
+`delegate` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a query or mutation to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
 
 - `operation` (required): Specifies whether the root field that's targeted by the delegation is query or mutation.
   - Possible values: `query`, `mutation`
@@ -164,15 +160,13 @@ const Mutation = {
 
 #### delegateSubscription
 
-`delegateSubscription` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
-
-##### API
-
 ```ts
 delegateSubscription(fieldName: string, args?: {
     [key: string]: any;
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
 ```
+
+`delegateSubscription` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
 
 - `operation` (required): Specifies whether the root field that's targeted by the delegation is query or mutation.
   - Possible values: `query`, `mutation`
@@ -205,15 +199,12 @@ userServiceDelegate.delegateSubscription(
 
 #### getAbstractResolvers
 
-##### API
-
 ```ts
 getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
 ```
 
-##### Example
+For _abstract_ GraphQL Types (`Union`, `Interface`), you need to add concrete resolvers to the graphql-js server in order to know which concrete type to return.
 
-// TODO
 
 ## The `Binding` class
 
