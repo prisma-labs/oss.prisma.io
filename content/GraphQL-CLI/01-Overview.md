@@ -17,7 +17,7 @@ npm install -g graphql-cli
 Install with `yarn`:
 
 ```sh
-yarn global add graphq-cli
+yarn global add graphql-cli
 ```
 
 ## Usage

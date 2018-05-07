@@ -45,7 +45,7 @@ type Mutation {
 }
 ```
 
-The server's API accepts exacrtly two operations:
+The server's API accepts exactly two operations:
 
 - A query to retrieve all `User`s
 - A mutation to create a new `User`
