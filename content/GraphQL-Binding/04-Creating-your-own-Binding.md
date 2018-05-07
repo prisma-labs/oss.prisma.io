@@ -157,15 +157,68 @@ projects:
 
 Now invoking the `graphql codegen` command has the same effect as using the `graphql-binding` CLI with the `language`, `input` and `outputBinding` arguments.
 
+#### Using the `UserServiceBinding` class
+
+Here a few examplary calls you can now make with your `UserServiceBinding` class:
+
+```js
+const userServiceBinding = new UserServiceBinding()
+
+// Send the `user` query and retrieve the `name` of `User` with id `user-0`
+userServiceBinding.user({ id: `user-0` }, `{ name }`)
+
+// Send the `users` query and retrieve the `id` and `name` of all retrieved `User`s
+userServiceBinding.users({}, `{ id name }`)
+
+// Send the `createUser` mutation and retrieve the `id` of the newly created `User`
+userServiceBinding.createUser({ name: `Alice` }, `{ id }`)
+
+// Send the `updateUser` mutation and retrieve the new `name` of the updated `User`
+userServiceBinding.updateUser({ id: 'user-0',  name: 'Bob' }, `{ name }`)
+
+// Send the `deleteUser` mutation and retrieve the `id` and `name` of the deleted `User`
+userServiceBinding.updateUser({ id: 'user-0',  name: 'Bob' }, `{ id name }`)
+```
+
 #### Adding custom functionality to your binding
 
 One common use case for GraphQL bindings is adding custom functionality to the abstracted GraphQL API. The neat thing here is that you can effectively customize a GraphQL API without adjusting its GraphQL schema. When customizing the API, you're extremely flexible since you can virtually add any kind of functionality your programming language offers.
 
 Examples for when you'd want to do this are:
 
-- If a GraphQL API requires authentication, the binding can take care of it
 - Extending the API with custom methods (e.g. `exists` from `prisma-binding`)
-- Renaming queries and mutations (should be used with care not to confuse people)
+- If a GraphQL API requires authentication, the binding can take care of it
 - Setting default arguments for certain queries, mutations or subscriptions
 - Validating and transforming input arguments or returned results
+- Renaming queries and mutations (should be used with care)
 - Special error handling
+
+To add custom functionality to your binding, you need to extend your `Binding` subclass with the desired functionality. For example, here is how you could a `userExist` method which simply checks if a `User` with a given `id` exists and directly returns a boolean value as the result.
+
+```js
+class UserServiceBinding extends Binding {
+  constructor() {
+
+    // Create the `HttpLink` required for the remote executable schema
+    const endpoint = `https://example.org/user-service`
+    const link = new HttpLink({ uri: endpoint, fetch })
+
+    // Create the remote schema
+    const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
+
+    // Invoke the constructor of `Binding` with the remote schema
+    super({
+      schema: schema,
+    })
+  }
+
+  async userExists(id) {
+    const result = await this.delegate(
+      'query',
+      'user',
+      { id }
+    )
+    return Boolean(result)
+  }
+}
+```
