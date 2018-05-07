@@ -38,10 +38,10 @@ Here's what that could look like:
 
 ```js
 const fetch = require('node-fetch')
-const { Binding } = require('graphql-binding')
+const { Delegate } = require('graphql-binding')
 const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.grahpql)
+const typeDefs = require('./user-service.graphql')
 
 class UserServiceBinding extends Binding {
   constructor() {
@@ -159,3 +159,13 @@ Now invoking the `graphql codegen` command has the same effect as using the `gra
 
 #### Adding custom functionality to your binding
 
+One common use case for GraphQL bindings is adding custom functionality to the abstracted GraphQL API. The neat thing here is that you can effectively customize a GraphQL API without adjusting its GraphQL schema. When customizing the API, you're extremely flexible since you can virtually add any kind of functionality your programming language offers.
+
+Examples for when you'd want to do this are:
+
+- If a GraphQL API requires authentication, the binding can take care of it
+- Extending the API with custom methods (e.g. `exists` from `prisma-binding`)
+- Renaming queries and mutations (should be used with care not to confuse people)
+- Setting default arguments for certain queries, mutations or subscriptions
+- Validating and transforming input arguments or returned results
+- Special error handling

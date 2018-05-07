@@ -24,6 +24,8 @@ type User {
 }
 ```
 
+Assume the corresponding GraphQL API is deployed to this URL: `https://example.org/user-service`
+
 ## The `Delegate` class
 
 ### Constructor
@@ -36,35 +38,47 @@ Creates a new instance of `Delegate`.
 constructor({schema, fragmentReplacements, before}: BindingOptions)
 ```
 
-- `schema` (required): An executable instance of `GraphQLSchema` which represents the API that should be abstracted.
-- `fragmentReplacements`: TODO
-- `before`: A function that's executed _before_ a query or mutation is sent to the API
+- `schema` (required): An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted.
+- `fragmentReplacements`: A GraphQL fragment that's applied to each query, subscription or mutation sent to the abstracted API.
+- `before`: A function that's executed _before_ a query, mutation or subscription request is sent to the abstracted API.
+
+**Example**
+
+```js
+const fetch = require('node-fetch')
+const { Delegate } = require('graphql-binding')
+const { HttpLink } = require('apollo-link-http')
+const { makeRemoteExecutableSchema } = require('graphql-tools')
+const typeDefs = require('./user-service.graphql')
+
+// Create the remote schema
+const endpoint = `https://example.org/user-service`
+const link = new HttpLink({ uri: endpoint, fetch })
+const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
+
+// Create the `before` function
+const before = () => console.log(`Sending a request to the GraphQL API ...`)
+
+const delegate = new Delegate 
+```
 
 ### Properties
 
 #### schema
 
+An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`]((https://www.apollographql.com/docs/graphql-tools/)) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
+
 ### Methods
 
 #### before
-
-// TODO
-
-##### API
 
 ```ts
 before: () => void
 ```
 
-##### Example
-
-// TODO
+ A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the `link` that's used to reach the API, implement analytics features or add a logging statement before each API request.
 
 #### request
-
-`request` allows to send a GraphQL query / mutation to the GraphQL API that's abstracted by this binding. It is a proxy for `request` from `graphql-request`.
-
-##### API
 
 ```ts
 request<T = any>(query: string, variables?: {
@@ -72,10 +86,12 @@ request<T = any>(query: string, variables?: {
 }): Promise<T>;
 ```
 
+`request` allows to send a GraphQL query / mutation to the GraphQL API that's abstracted by this binding. It is a proxy for `request` from `graphql-request`.
+
 - `query` (required): A string that contains the query or mutation
 - `variables` (optional): Any variables that are defined in the `query` string
 
-##### Example
+**Example: Sending a `createUser` mutation to the API**
 
 ```js
 const mutation = `
