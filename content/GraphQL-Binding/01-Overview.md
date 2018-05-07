@@ -1,14 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">🔗</p>
+
 # GraphQL Binding
 
-<!-- [![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
-
-[<img src="../assets/view-on-github.png" />](https://github.com/graphql-binding/graphql-binding)
-
-[<img src="../assets/view-on-github.png" />](https://github.com/graphql-binding/graphql-binding)
-
-<a href="https://github.com/graphql-binding/graphql-binding"><img src="../assets/view-on-github.png" /></a> -->
-
-🔗 **Interact with GraphQL APIs with a convenient Javascript interface**
+**Interact with GraphQL APIs with a convenient Javascript interface**
 
 [![](../assets/view-on-github.svg)](https://github.com/graphql-binding/graphql-binding)
 

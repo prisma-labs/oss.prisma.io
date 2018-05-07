@@ -1,6 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">📟</p>
+
 # GraphQL CLI
 
-📟 **Handle your GraphQL development workflow with a single command line tool.**
+**Handle your GraphQL development workflow with a single command line tool.**
 
 [![](../assets/view-on-github.svg)](https://github.com/graphql-cli/graphql-cli)
 

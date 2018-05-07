@@ -1,6 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">📡</p>
+
 # GraphQL Request
 
-📡 **Query GraphQL APIs with a single line of code.**
+**Query GraphQL APIs with a single line of code.**
 
 [![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-request)
 

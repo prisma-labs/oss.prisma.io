@@ -1,6 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">⚙</p>
+
 # GraphQL Config
 
-⚙ **Easiest way to configure your development environment with your GraphQL schema (supported by most tools, editors &amp; IDEs)**
+**Easiest way to configure your development environment with your GraphQL schema (supported by most tools, editors &amp; IDEs)**
 
 [![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-config)
 

@@ -1,6 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">🗂</p>
+
 # GraphQL Import
 
-🗂 **Compose GraphQL Schemas**
+**Easily compose GraphQL Schemas**
 
 [![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-import)
 

@@ -1,6 +1,6 @@
-# GraphQL Middleware
-
 <p align="center"><img src="../../assets/graphql-middleware.png" alt="logo" width="150" /></p>
+
+# GraphQL Middleware
 
 **All in one solution to manage middleware in your GraphQL projects.**
 
