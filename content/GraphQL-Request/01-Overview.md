@@ -1,8 +1,3 @@
----
-alias: chinohsh2j
-description: GraphQL Request is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
----
-
 # graphql-request
 
 📡 [`graphql-request`](https://github.com/graphcool/graphql-request) is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
