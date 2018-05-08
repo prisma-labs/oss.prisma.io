@@ -4,8 +4,6 @@
 
 **Easily setup performant, developer friendly GraphQL Servers**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-yoga)
-
 GraphQL Yoga is a fully-featured GraphQL Server with focus on easy setup, performance & great developer experience.
 
 ## Features

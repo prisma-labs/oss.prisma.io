@@ -2,12 +2,12 @@
 
 ⚙ **Easiest way to configure your development environment with your GraphQL schema (supported by most tools, editors &amp; IDEs)**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-config)
-
 ### Language Services
+
 * [graphql-language-service](https://github.com/graphql/graphql-language-service) - An interface for building GraphQL language services for IDEs (_pending_)
 
 ### Editors
+
 * [js-graphql-intellij-plugin](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin) - GraphQL language support for IntelliJ IDEA and WebStorm, including Relay.QL tagged templates in JavaScript and TypeScript (_pending_)
 * [atom-language-graphql](https://github.com/rmosolgo/language-graphql) - GraphQL support for Atom text editor (_pending_)
 * [vscode-graphql](https://github.com/stephen/vscode-graphql) - GraphQL support for VSCode text editor

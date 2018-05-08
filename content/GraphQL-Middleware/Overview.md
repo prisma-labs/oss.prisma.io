@@ -4,8 +4,6 @@
 
 **All in one solution to manage middleware in your GraphQL projects.**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-middleware)
-
 GraphQL Middleware is a schema wrapper which allows you to manage additional functionality across multiple resolvers efficiently.
 
 ## Features

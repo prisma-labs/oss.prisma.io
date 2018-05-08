@@ -2,8 +2,6 @@
 
 📡 **Query GraphQL APIs with a single line of code.**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-request)
-
 `graphql-request` is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
 
 ## Features
