@@ -4,8 +4,6 @@
 
 **Easily compose GraphQL Schemas**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-import)
-
 `graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
 
 ## Install

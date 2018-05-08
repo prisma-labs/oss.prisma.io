@@ -4,8 +4,6 @@
 
 **Handle your GraphQL development workflow with a single command line tool.**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphql-cli/graphql-cli)
-
 The GraphQL CLI is a multi-purpose command line tool for common GraphQL development workflows. A Swiss Army Knife for GraphQL development.
 
 ## Features

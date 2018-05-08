@@ -4,8 +4,6 @@
 
 **Easiest way to configure your development environment with your GraphQL schema (supported by most tools, editors &amp; IDEs)**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-config)
-
 ### Language Services
 * [graphql-language-service](https://github.com/graphql/graphql-language-service) - An interface for building GraphQL language services for IDEs (_pending_)
 

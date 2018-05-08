@@ -4,8 +4,6 @@
 
 **Improve your development workflow with a fully featured GraphQL IDE.**
 
-[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-playground/)
-
 `graphql-playground` is a GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
 
 **You can download the [desktop app](https://github.com/graphcool/graphql-playground/releases) or use the web version at graphqlbin.com: [Demo](https://www.graphqlbin.com/RVIn)**
