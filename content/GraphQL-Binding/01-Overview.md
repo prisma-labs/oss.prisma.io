@@ -8,7 +8,9 @@
 
 <a href="https://github.com/graphql-binding/graphql-binding"><img src="../assets/view-on-github.png" /></a> -->
 
-## Description
+🔗 **Interact with GraphQL APIs with a convenient Javascript interface**
+
+[![](../assets/view-on-github.svg)](https://github.com/graphql-binding/graphql-binding)
 
 GraphQL bindings provide a convenient way for interacting with a GraphQL API from your programming language: Instead of sending queries as strings via HTTP (e.g. with JavaScript's `fetch`), you invoke a binding function which constructs the query and sends it to the GraphQL server for you.
 
@@ -18,13 +20,19 @@ GraphQL bindings are particularly useful in combination with statically typed la
 
 ## Use cases
 
-- GraphQL-based service-to-Service communication
-- Building GraphQL gateways
-- Composing GraphQL APIs as modular building blocks
-- Implementing a custom GraphQL API on top of Prisma
-- Sharing runnable instances of GraphQL APIs
-- Accessing GraphQL APIs from a script
-- Implementing custom operations for an existing GraphQL API
+🛰 GraphQL-based service-to-Service communication
+
+🔨 Building GraphQL gateways
+
+🤖 Composing GraphQL APIs as modular building blocks
+
+🔼 Implementing a custom GraphQL API on top of Prisma
+
+🏃‍♀️ Sharing runnable instances of GraphQL APIs
+
+🗒 Accessing GraphQL APIs from a script
+
+🛂 Implementing custom operations for an existing GraphQL API
 
 ## Simple example
 

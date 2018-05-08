@@ -1,12 +1,18 @@
-# graphql-request
+# GraphQL Request
 
-📡 [`graphql-request`](https://github.com/graphcool/graphql-request) is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
+📡 **Query GraphQL APIs with a single line of code.**
 
-## Features
+[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-request)
 
-* Most **simple and lightweight** GraphQL client
-* Promise-based API (works with `async` / `await`)
-* Typescript support (Flow coming soon)
+`graphql-request` is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
+
+## Features
+
+📈 Minimal API
+
+🔮 Promise-based API (works with `async` / `await`)
+
+📋 Typescript support (Flow coming soon)
 
 ## Install
 
@@ -14,7 +20,7 @@
 npm install graphql-request
 ```
 
-## Quickstart
+## Example
 
 Send a GraphQL query with a single line of code. ▶️ [Try it out](https://runkit.com/593130bdfad7120012472003/593130bdfad7120012472004).
 

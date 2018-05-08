@@ -1,16 +1,20 @@
 # GraphQL Yoga
 
-[**Open on GitHub**](https://github.com/graphcool/graphql-yoga)
+<p align="center"><img src="https://imgur.com/Sv6j0B6.png" width="100" /></p>
 
-## Description
+**Easily setup performant, developer friendly GraphQL Servers**
+
+[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-yoga)
 
 GraphQL Yoga is a fully-featured GraphQL Server with focus on easy setup, performance & great developer experience.
 
-## Overview
+## Features
 
-* **Easiest way to run a GraphQL server:** Sensible defaults & includes everything you need with minimal setup.
-* **Includes Subscriptions:** Built-in support for realtime GraphQL Subscriptions using WebSockets.
-* **Compatible:** Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
+🕹 **Easiest way to run a GraphQL server:** Sensible defaults & includes everything you need with minimal setup.
+
+⚡️ **Includes Subscriptions:** Built-in support for realtime GraphQL Subscriptions using WebSockets.
+
+👾 **Compatible:** Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
 
 GraphQL Yoga is based on the following libraries & tools:
 

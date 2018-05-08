@@ -1,6 +1,10 @@
-# graphql-playground
+# GraphQL Playground
 
-🎮 [`graphql-playground`](https://github.com/graphcool/graphql-playground/) is a GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
+🎮 **Improve your development workflow with a fully featured GraphQL IDE.**
+
+[![](../assets/view-on-github.svg)](https://github.com/graphcool/graphql-playground/)
+
+`graphql-playground` is a GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
 
 **You can download the [desktop app](https://github.com/graphcool/graphql-playground/releases) or use the web version at graphqlbin.com: [Demo](https://www.graphqlbin.com/RVIn)**
 
@@ -8,45 +12,21 @@
 
 ## Features
 
-* ✨ Context-aware autocompletion & error highlighting
-* 📚 Interactive, multi-column docs (keyboard support)
-* ⚡️ Supports real-time GraphQL Subscriptions
-* ⚙  GraphQL Config support with multiple Projects & Endpoints
-* 🚥 Apollo Tracing support
+✨ Context-aware autocompletion & error highlighting
 
-## FAQ
+📚 Interactive, multi-column docs (keyboard support)
 
-### How is this different from [GraphiQL](https://github.com/graphql/graphiql)?
+⚡️ Supports real-time GraphQL Subscriptions
 
-GraphQL Playground uses components of GraphiQL under the hood but is meant as a more powerful GraphQL IDE enabling better (local) development workflows. Compared to GraphiQL, the GraphQL Playground ships with the following additional features:
+⚙  GraphQL Config support with multiple Projects & Endpoints
 
-* Interactive, multi-column schema documentation
-* Automatic schema reloading
-* Support for GraphQL Subscriptions
-* Query history
-* Configuration of HTTP headers
-* Tabs
-
-See the following question for more additonal features.
-
-### What's the difference between the desktop app and the web version?
-
-The desktop app is the same as the web version but includes these additional features:
-
-* Support for [graphql-config](https://github.com/graphcool/graphql-config) enabling features like multi-environment setups.
-* Double click on `*.graphql` files.
-
-### How does GraphQL Bin work?
-
-You can easily share your Playgrounds with others by clicking on the "Share" button and sharing the generated link. You can think about GraphQL Bin like Pastebin for your GraphQL queries including the context (endpoint, HTTP headers, open tabs etc).
-
-![](https://imgur.com/H1n64lL.png)
-
-> You can also find the announcement blog post [here](https://blog.graph.cool/introducing-graphql-playground-f1e0a018f05d).
+🚥 Apollo Tracing support
 
 ## Usage
 
 ### Properties
+
+You can use GraphQL Playground in any of its different modes. Download the desktop app, use the web version at graphqlbin.com, import it as a React component, use it as a server middleware or as a serverless handler.
 
 All interfaces, the React component `<Playground />` and all middlewares expose the same set of options:
 
@@ -167,3 +147,33 @@ functions:
         method: get
         cors: true
 ```
+
+## FAQ
+
+### How is this different from [GraphiQL](https://github.com/graphql/graphiql)?
+
+GraphQL Playground uses components of GraphiQL under the hood but is meant as a more powerful GraphQL IDE enabling better (local) development workflows. Compared to GraphiQL, the GraphQL Playground ships with the following additional features:
+
+* Interactive, multi-column schema documentation
+* Automatic schema reloading
+* Support for GraphQL Subscriptions
+* Query history
+* Configuration of HTTP headers
+* Tabs
+
+See the following question for more additonal features.
+
+### What's the difference between the desktop app and the web version?
+
+The desktop app is the same as the web version but includes these additional features:
+
+* Support for [graphql-config](https://github.com/graphcool/graphql-config) enabling features like multi-environment setups.
+* Double click on `*.graphql` files.
+
+### How does GraphQL Bin work?
+
+You can easily share your Playgrounds with others by clicking on the "Share" button and sharing the generated link. You can think about GraphQL Bin like Pastebin for your GraphQL queries including the context (endpoint, HTTP headers, open tabs etc).
+
+![](https://imgur.com/H1n64lL.png)
+
+> You can also find the announcement blog post [here](https://blog.graph.cool/introducing-graphql-playground-f1e0a018f05d).
