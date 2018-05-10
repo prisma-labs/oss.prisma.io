@@ -64,7 +64,7 @@ const delegate = new Delegate({ schema, before })
 
 #### schema
 
-An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`]((https://www.apollographql.com/docs/graphql-tools/)) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
+An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
 
 ### Methods
 
@@ -240,10 +240,10 @@ The `Options` type has two fields:
 
 ### Transforms
 
-// TODO
+Coming soon
 
 > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
 ### Context
 
-// TODO
+Coming soon

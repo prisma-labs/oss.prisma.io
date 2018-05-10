@@ -68,10 +68,14 @@ Inside a Node script, you could install the `graphql-binding-users` via `npm` or
 const userBinding = require('graphql-binding-users')
 
 // Create a new `User`
-userBinding.mutation.createUser({
-  name: 'Alice'
-}, `{ id }`)
-  .then({ id } => console.log(`The ID of the created user is: ${id}`))
+userBinding.mutation
+  .createUser(
+    {
+      name: 'Alice',
+    },
+    `{ id }`,
+  )
+  .then(({ id }) => console.log(`The ID of the created user is: ${id}`))
 ```
 
 In this example, `createUser` takes two arguments:
@@ -104,7 +108,7 @@ This time, no arguments are being passed and the selection set asks for the `id`
 The binding function therefore constructs and sends the following query to the GraphQL server:
 
 ```graphql
-mutation {
+query {
   users {
     id
     name
