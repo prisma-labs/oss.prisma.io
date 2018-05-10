@@ -2,7 +2,7 @@
 
 * [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
   * [API Reference](./content/GraphQL-Binding/02-API-Reference.md)
-  * [CLI](./content/GraphQL-Binding/03-CLI.md)
+  * [Generator CLI](./content/GraphQL-Binding/03-Generator-CLI.md)
   * [Creating your own Binding](./content/GraphQL-Binding/04-Creating-your-own-Binding.md)
 * [GraphQL CLI](./content/GraphQL-CLI/01-Overview.md)
   * [Command Reference](./content/GraphQL-CLI/02-Command-Reference.md)
