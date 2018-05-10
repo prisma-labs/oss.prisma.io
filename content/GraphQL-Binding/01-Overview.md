@@ -108,7 +108,7 @@ This time, no arguments are being passed and the selection set asks for the `id`
 The binding function therefore constructs and sends the following query to the GraphQL server:
 
 ```graphql
-mutation {
+query {
   users {
     id
     name
