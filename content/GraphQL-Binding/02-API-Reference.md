@@ -237,7 +237,7 @@ The `Options` type has two fields:
 
 Coming soon
 
-> [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
+<!-- > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) -->
 
 ### Context
 
