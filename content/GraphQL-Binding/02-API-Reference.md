@@ -62,13 +62,13 @@ const delegate = new Delegate({ schema, before })
 
 ### Properties
 
-#### schema
+#### `schema`
 
 An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
 
 ### Methods
 
-#### before
+#### `before`
 
 ```ts
 before: () => void
@@ -76,7 +76,7 @@ before: () => void
 
  A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the `link` that's used to reach the API, implement analytics features or add a logging statement before each API request.
 
-#### request
+#### `request`
 
 ```ts
 request<T = any>(query: string, variables?: {
@@ -104,7 +104,7 @@ userServiceDelegate.request(query, variables)
   .then(createUserResult => JSON.stringify(createUserResult))
 ```
 
-#### delegate
+#### `delegate`
 
 ```ts
 delegate(operation: QueryOrMutation, fieldName: string, args: {
@@ -124,9 +124,7 @@ delegate(operation: QueryOrMutation, fieldName: string, args: {
   - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`. // TODO
   - `context` (optional): Allows to pass additional information to the GraphQL API that's abstracted.
 
-##### Example
-
-**Hardcode the selection set as a string:**
+**Example: Hardcode the selection set as a string:**
 
 ```js
 const args = { name: `Alice` }
@@ -139,7 +137,7 @@ userServiceDelegate.delegate(
 ).then(createUserResult => JSON.stringify(createUserResult))
 ```
 
-**Dynamic selection set based on the `info` object inside a GraphQL resolver**:
+**Example: Dynamic selection set based on the `info` object inside a GraphQL resolver**:
 
 ```js
 const Mutation = {
@@ -158,7 +156,7 @@ const Mutation = {
 
 > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
-#### delegateSubscription
+#### `delegateSubscription`
 
 ```ts
 delegateSubscription(fieldName: string, args?: {
@@ -175,9 +173,7 @@ delegateSubscription(fieldName: string, args?: {
 - `infoOrQuery`: Either a string or the `info` object - in any case this specifies the selection set for the operation which is send to the GraphQL API that's abstract by this binding.
 - `options`: TODO
 
-##### Example
-
-**Hardcode the selection set as a string:**
+**Example: Hardcode the selection set as a string:**
 
 ```js
 const selectionSet = `{ id name }`
@@ -189,22 +185,21 @@ userServiceDelegate.delegateSubscription(
 // TODO -> what to do with the AsyncIterator in the returned Promise?
 ```
 
-**Dynamic selection set based on the `info` object inside a GraphQL resolver**:
+<!-- **Example: Dynamic selection set based on the `info` object inside a GraphQL resolver**:
 
 ```js
 // TODO
-```
+``` -->
 
 > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
-#### getAbstractResolvers
+#### `getAbstractResolvers`
 
 ```ts
 getAbstractResolvers(filterSchema?: GraphQLSchema | string): IResolvers;
 ```
 
 For _abstract_ GraphQL Types (`Union`, `Interface`), you need to add concrete resolvers to the graphql-js server in order to know which concrete type to return.
-
 
 ## The `Binding` class
 
@@ -224,12 +219,12 @@ Exposes all the mutations of the GraphQL API that is abstracted by this binding.
 
 Exposes all the subscriptions of the GraphQL API that is abstracted by this binding.
 
-### Methods
+<!-- ### Methods
 
 // TODO
 
 > should `buildMethods`, `buildQueryMethods` and `buildSubscriptionMethods` even be exposed? when would you want to call them?
-> I guess after `super.schema` has been changed you'd want to call them? is that a use case we should document?
+> I guess after `super.schema` has been changed you'd want to call them? is that a use case we should document? -->
 
 ## Understanding `Options`
 
