@@ -1,6 +1,8 @@
+<p align="center" style="font-size: 10rem; margin-bottom: 0;">🎮</p>
+
 # GraphQL Playground
 
-🎮 **Improve your development workflow with a fully featured GraphQL IDE.**
+**Improve your development workflow with a fully featured GraphQL IDE.**
 
 `graphql-playground` is a GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
 
