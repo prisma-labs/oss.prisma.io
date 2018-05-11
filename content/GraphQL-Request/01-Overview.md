@@ -1,8 +1,6 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">📡</p>
-
 # GraphQL Request
 
-**Query GraphQL APIs with a single line of code.**
+📡 **Query GraphQL APIs with a single line of code.**
 
 `graphql-request` is a minimal GraphQL client supporting Node and browsers for scripts or simple apps.
 

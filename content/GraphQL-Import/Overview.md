@@ -1,8 +1,6 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">🗂</p>
-
 # GraphQL Import
 
-**Easily compose GraphQL Schemas**
+🗂 **Compose GraphQL Schemas**
 
 You may want to split a schema definition into multiple files in large applications, `graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
 
