@@ -12,7 +12,7 @@ GraphQL bindings are particularly useful in combination with statically typed la
 
 One perspective to think of GraphQL bindings is as auto-generated SDKs for GraphQL APIs:
 
-![](../assets/bindings.png)
+![](../../assets/bindings.png)
 
 ## Use cases
 
