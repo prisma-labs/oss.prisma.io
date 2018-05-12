@@ -1,5 +1,7 @@
 # Overview
 
+[**View on GitHub**](https://github.com/graphcool/graphql-config)
+
 ## Description
 
 GraphQL Config is an industry-standard for configuring GraphQL projects and the easiest way to intellegently integrate your GraphQL schema into your IDEs, text editors and various other tools.

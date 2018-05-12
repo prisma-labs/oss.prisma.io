@@ -1,10 +1,10 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">🎮</p>
+# Overview
 
-# GraphQL Playground
+[**View on GitHub**](https://github.com/graphcool/graphql-playground)
 
-**Improve your development workflow with a fully featured GraphQL IDE.**
+## Description
 
-`graphql-playground` is a GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
+`graphql-playground` is a fully-featured GraphQL IDE for better development workflows (GraphQL subscriptions, interactive docs & collaboration).
 
 **You can download the [desktop app](https://github.com/graphcool/graphql-playground/releases) or use the web version at graphqlbin.com: [Demo](https://www.graphqlbin.com/RVIn)**
 
@@ -12,15 +12,11 @@
 
 ## Features
 
-✨ Context-aware autocompletion & error highlighting
-
-📚 Interactive, multi-column docs (keyboard support)
-
-⚡️ Supports real-time GraphQL Subscriptions
-
-⚙  GraphQL Config support with multiple Projects & Endpoints
-
-🚥 Apollo Tracing support
+- Context-aware autocompletion & error highlighting
+- Interactive, multi-column docs (keyboard support)
+- Supports real-time GraphQL Subscriptions
+- GraphQL Config support with multiple Projects & Endpoints
+- Apollo Tracing support
 
 ## Usage
 
@@ -35,7 +31,7 @@ All interfaces, the React component `<Playground />` and all middlewares expose 
   + `subscriptionEndpoint` [`string`] - the GraphQL subscriptions endpoint url.
   + `setTitle` [`boolean`] - reflect the current endpoint in the page title
 
-### As React Component
+### As React component
 
 #### Install
 
@@ -71,7 +67,7 @@ import 'graphql-playground/playground.css'
 ReactDOM.render(<Playground endpoint="https://api.graph.cool/simple/v1/swapi" />, document.body)
 ```
 
-### As Server Middleware
+### As server middleware
 
 #### Install
 

@@ -1,37 +1,36 @@
-<p align="center"><img src="https://imgur.com/Sv6j0B6.png" width="150" /></p>
-
 # GraphQL Yoga
 
-**Easily setup performant, developer friendly GraphQL Servers**
+[**View on GitHub**](https://github.com/graphcool/graphql-yoga)
+
+## Description
 
 GraphQL Yoga is a fully-featured GraphQL Server with focus on easy setup, performance & great developer experience.
 
 ## Features
 
-🕹 **Easiest way to run a GraphQL server:** Sensible defaults & includes everything you need with minimal setup.
-
-⚡️ **Includes Subscriptions:** Built-in support for realtime GraphQL Subscriptions using WebSockets.
-
-👾 **Compatible:** Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
+- **Easiest way to run a GraphQL server:** Sensible defaults & includes everything you need with minimal setup.
+- **Includes Subscriptions:** Built-in support for realtime GraphQL Subscriptions using WebSockets.
+- **Compatible:** Works with all GraphQL clients (Apollo, Relay...) and fits seamless in your GraphQL workflow.
 
 GraphQL Yoga is based on the following libraries & tools:
 
-* [`express`](https://github.com/expressjs/express)/[`apollo-server`](https://github.com/apollographql/apollo-server): Performant, extensible web server framework
-* [`graphql-subscriptions`](https://github.com/apollographql/graphql-subscriptions)/[`subscriptions-transport-ws`](https://github.com/apollographql/subscriptions-transport-ws): GraphQL subscriptions server
-* [`graphql.js`](https://github.com/graphql/graphql-js)/[`graphql-tools`](https://github.com/apollographql/graphql-tools): GraphQL engine & schema helpers
-* [`graphql-playground`](https://github.com/graphcool/graphql-playground): Interactive GraphQL IDE
+- [`express`](https://github.com/expressjs/express)/
+- [`apollo-server`](https://github.com/apollographql/apollo-server): Performant, extensible web server framework
+- [`graphql-subscriptions`](https://github.com/apollographql/graphql-subscriptions)/[`subscriptions-transport-ws`](https://github.com/apollographql/subscriptions-transport-ws): GraphQL subscriptions server
+- [`graphql.js`](https://github.com/graphql/graphql-js)/[`graphql-tools`](https://github.com/apollographql/graphql-tools): GraphQL engine & schema helpers
+- [`graphql-playground`](https://github.com/graphcool/graphql-playground): Interactive GraphQL IDE
 
 ## Features
 
-* GraphQL spec-compliant
-* File uploadgit st
-* GraphQL Subscriptions
-* TypeScript typings
-* GraphQL Playground
-* Extensible via Express middlewares
-* Query Performance Tracing (via Apollo Tracing)
-* Accepts both `application/json` and `application/graphql` content-type
-* Runs everywhere: Can be deployed via `now`, `up`, AWS Lambda, Heroku etc
+- GraphQL spec-compliant
+- File uploadgit st
+- GraphQL Subscriptions
+- TypeScript typings
+- GraphQL Playground
+- Extensible via Express middlewares
+- Query Performance Tracing (via Apollo Tracing)
+- Accepts both `application/json` and `application/graphql` content-type
+- Runs everywhere: Can be deployed via `now`, `up`, AWS Lambda, Heroku etc
 
 ## Install
 
