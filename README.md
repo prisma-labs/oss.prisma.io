@@ -36,4 +36,4 @@ In case you're encountering a bug with any of the libraries, please open an issu
 
 ### Community
 
-Learn more about the awesome Prisma and GraphQL communities, including various events, newsletters, podcasts and a lot more on the [**Prisma Community**](https://prisma.io/community/) page.
+Learn more about the awesome Prisma and GraphQL communities, including various _events_, _newsletters_, _podcasts_ and a lot more on the [**Prisma Community**](https://prisma.io/community/) page.
