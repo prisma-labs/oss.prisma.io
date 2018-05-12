@@ -10,7 +10,7 @@ The GraphQL CLI is a multi-purpose command line tool for common GraphQL developm
 
 - Code generation
 - Schema handling
-- Bootstrapping
+- Bootstrapping [GraphQL boilerplates](https://github.com/graphql-boilerplates)
 - Project configuration
 - ... and a lot more
 
