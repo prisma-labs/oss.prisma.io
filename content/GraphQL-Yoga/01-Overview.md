@@ -1,6 +1,6 @@
-# GraphQL Yoga
+<p align="center"><img src="https://imgur.com/Sv6j0B6.png" width="150" /></p>
 
-<p align="center"><img src="https://imgur.com/Sv6j0B6.png" width="100" /></p>
+# GraphQL Yoga
 
 **Easily setup performant, developer friendly GraphQL Servers**
 
