@@ -1,5 +1,9 @@
 # Overview
 
+[**View on GitHub**](https://github.com/graphcool/graphql-yoga)
+
+## Description
+
 GraphQL Middleware is a schema wrapper which allows you to manage additional functionality across multiple resolvers efficiently.
 
 ## Features

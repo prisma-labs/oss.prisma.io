@@ -1,4 +1,4 @@
-# GraphQL Yoga
+# Overview
 
 [**View on GitHub**](https://github.com/graphcool/graphql-yoga)
 
