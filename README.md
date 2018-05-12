@@ -6,20 +6,29 @@ Docs for the open-source libraries maintained by the [Prisma](https://www.prisma
 
 ## Libraries
 
-- **GraphQL CLI** ([Docs](./content/GraphQL-CLI/01-Overview.md) | [GitHub](https://github.com/graphql-cli/graphql-cli)): Universal CLI for GraphQL projects
+<!-- - **GraphQL CLI** ([Docs](./content/GraphQL-CLI/01-Overview.md) | [GitHub](https://github.com/graphql-cli/graphql-cli)): Universal CLI for GraphQL projects
 - **GraphQL Binding** ([Docs](./content/GraphQL-Binding/01-Overview.md) | [GitHub](https://github.com/graphql-binding/graphql-binding)): Auto-generated SDKs for GraphQL APIs
 - **GraphQL Yoga** ([Docs](./content/GraphQL-Yoga/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-yoga)): Simple and performant GraphQL server
 - **GraphQL Config** ([Docs](./content/GraphQL-Config/01-Overview.md) | [GitHub](https://github.com/graphql-config/graphql-config)): Configuration standard for GraphQL tools
 - **GraphQL Import** ([Docs](./content/GraphQL-Import/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-import)): Import SDL types across files
 - **GraphQL Middleware** ([Docs](./content/GraphQL-Middleware/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-middleware)): Middleware for GraphQL resolvers
 - **GraphQL Playground** ([Docs](./content/GraphQL-Playground/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-playground)): Powerful GraphQL IDE
-- **GraphQL Request** ([Docs](./content/GraphQL-Request/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-request)): Minimal GraphQL client in JavaScript
+- **GraphQL Request** ([Docs](./content/GraphQL-Request/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-request)): Minimal GraphQL client in JavaScript -->
+
+- GraphQL CLI ([**Docs**](./content/GraphQL-CLI/01-Overview.md) | [**GitHub**](https://github.com/graphql-cli/graphql-cli)): Universal CLI for GraphQL projects
+- GraphQL Binding ([**Docs**](./content/GraphQL-Binding/01-Overview.md) | [**GitHub**](https://github.com/graphql-binding/graphql-binding)): Auto-generated SDKs for GraphQL APIs
+- GraphQL Yoga ([**Docs**](./content/GraphQL-Yoga/01-Overview.md) | [**GitHub**](https://github.com/graphcool/graphql-yoga)): Simple and performant GraphQL server
+- GraphQL Config ([**Docs**](./content/GraphQL-Config/01-Overview.md) | [**GitHub**](https://github.com/graphql-config/graphql-config)): Configuration standard for GraphQL tools
+- GraphQL Import ([**Docs**](./content/GraphQL-Import/01-Overview.md) | [**GitHub**](https://github.com/graphcool/graphql-import)): Import SDL types across files
+- GraphQL Middleware ([**Docs**](./content/GraphQL-Middleware/01-Overview.md) | [**GitHub**](https://github.com/graphcool/graphql-middleware)): Middleware for GraphQL resolvers
+- GraphQL Playground ([**Docs**](./content/GraphQL-Playground/01-Overview.md) | [**GitHub**](https://github.com/graphcool/graphql-playground)): Powerful GraphQL IDE
+- GraphQL Request ([**Docs**](./content/GraphQL-Request/01-Overview.md) | [**GitHub**](https://github.com/graphcool/graphql-request)): Minimal GraphQL client in JavaScript
 
 ## Support
 
 #### Questions
 
-If you have questions around any of the libraries, check out the respective **Help & FAQ** sections, join the [**Prisma Slack**](http://slack.prisma.io/) or post a question in the [**Prisma Forum**](https://www.prisma.io/forum/).
+If you have questions around any of the libraries, check out the respective "Help & FAQ" sections, join the [**Prisma Slack**](http://slack.prisma.io/) or post a question in the [**Prisma Forum**](https://www.prisma.io/forum/).
 
 ### Bugs
 
