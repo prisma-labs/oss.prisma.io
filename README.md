@@ -15,13 +15,16 @@ Docs for the open-source libraries maintained by the [Prisma](https://www.prisma
 - **GraphQL Playground** ([Docs](./content/GraphQL-Playground/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-playground)): Powerful GraphQL IDE
 - **GraphQL Request** ([Docs](./content/GraphQL-Request/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-request)): Minimal GraphQL client in JavaScript
 
-## Community & Support
+## Support
 
+## Questions
 
+If you have questions around any of the libraries, check out the respective **Help & FAQ** sections, join the [**Prisma Slack**](http://slack.prisma.io/) or post a question in the [**Prisma Forum**](https://www.prisma.io/forum/).
 
-<!-- 
-TODO:
-- Slack
-- Forum
-- Prisma Community
--->
+## Bugs
+
+In case you're encountering a bug with any of the libraries, please open an issue in the respective GitHub repository.
+
+## Community
+
+Learn more about the awesome Prisma and GraphQL communities, including various events, newsletters, podcasts and a lot more on the [**Prisma Community**](https://prisma.io/community/) page.
