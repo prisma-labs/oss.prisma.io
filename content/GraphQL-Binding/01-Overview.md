@@ -1,8 +1,8 @@
 # Overview
 
-[View on GitHub](https://github.com/graphql-binding/graphql-binding)
+[**View on GitHub**](https://github.com/graphql-binding/graphql-binding)
 
-**Interact with GraphQL APIs with a convenient Javascript interface**
+## Description
 
 GraphQL bindings provide a convenient way for interacting with a GraphQL API from your programming language: Instead of sending queries as strings via HTTP (e.g. with JavaScript's `fetch`), you invoke a binding function which constructs the query and sends it to the GraphQL server for you.
 
