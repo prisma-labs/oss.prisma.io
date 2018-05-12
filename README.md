@@ -1,3 +1,3 @@
 # oss.prisma.io
 
-Documentation content for oss.prisma.io (GraphQL Playground, GraphQL Yoga, GraphQL Config...)
+Documentation for the open-source libraries maintained by the [Prisma](https://www.prisma.io) team and community.
