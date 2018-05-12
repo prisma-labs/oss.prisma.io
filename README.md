@@ -4,9 +4,9 @@
 
 Documentation for the open-source libraries maintained by the [Prisma](https://www.prisma.io) team and community.
 
-## Overview
+## Libraries
 
-- [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md): Auto-generated SDKs for GraphQL APIs
+- **GraphQL Binding** ([Docs](./content/GraphQL-Binding/01-Overview.md) | [GitHub](https://github.com/graphql-binding/graphql-binding)): Auto-generated SDKs for GraphQL APIs
 
 <!-- 
 TODO:
