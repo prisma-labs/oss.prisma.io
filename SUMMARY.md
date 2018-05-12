@@ -1,13 +1,13 @@
 # Table of contents
 
-* [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
-  * [API Reference](./content/GraphQL-Binding/02-API-Reference.md)
-  * [Generator CLI](./content/GraphQL-Binding/03-Generator-CLI.md)
-  * [Creating your own Binding](./content/GraphQL-Binding/04-Creating-your-own-Binding.md)
 * [GraphQL CLI](./content/GraphQL-CLI/01-Overview.md)
   * [Command Reference](./content/GraphQL-CLI/02-Command-Reference.md)
   * [Using with GraphQL Config](./content/GraphQL-CLI/03-Using-with-GraphQL-Config.md)
   * [Common Workflows](./content/GraphQL-CLI/04-Common-Workflows.md)
+* [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
+  * [API Reference](./content/GraphQL-Binding/02-API-Reference.md)
+  * [Generator CLI](./content/GraphQL-Binding/03-Generator-CLI.md)
+  * [Creating your own Binding](./content/GraphQL-Binding/04-Creating-your-own-Binding.md)
 * [GraphQL Config](./content/GraphQL-Config/Overview.md)
 * [GraphQL Import](./content/GraphQL-Import/Overview.md)
 * [GraphQL Middleware](./content/GraphQL-Middleware/Overview.md)
