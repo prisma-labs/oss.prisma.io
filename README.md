@@ -2,7 +2,7 @@
 
 <!-- [![](./assets/view-on-github.png)](https://github.com/graphcool/graphql-config) -->
 
-Documentation for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
+Docs for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
 
 ## Libraries
 
