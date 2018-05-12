@@ -2,7 +2,7 @@
 
 <!-- [![](./assets/view-on-github.png)](https://github.com/graphcool/graphql-config) -->
 
-Documentation for the open-source libraries maintained by the [Prisma](https://www.prisma.io) team and community.
+Documentation for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
 
 ## Libraries
 
@@ -14,6 +14,10 @@ Documentation for the open-source libraries maintained by the [Prisma](https://w
 - **GraphQL Middleware** ([Docs](./content/GraphQL-Middleware/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-middleware)): Middleware for GraphQL resolvers
 - **GraphQL Playground** ([Docs](./content/GraphQL-Playground/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-playground)): Powerful GraphQL IDE
 - **GraphQL Request** ([Docs](./content/GraphQL-Request/01-Overview.md) | [GitHub](https://github.com/graphcool/graphql-request)): Minimal GraphQL client in JavaScript
+
+## Community & Support
+
+
 
 <!-- 
 TODO:
