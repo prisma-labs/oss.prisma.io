@@ -1,13 +1,15 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">⚙</p>
+# Overview
 
-# GraphQL Config
+## Description
 
-**Easiest way to configure your development environment with your GraphQL schema (supported by most tools, editors &amp; IDEs)**
+GraphQL Config is an industry-standard for configuring GraphQL projects and the easiest way to intellegently integrate your GraphQL schema into your IDEs, text editors and various other tools.
 
 ### Language Services
+
 * [graphql-language-service](https://github.com/graphql/graphql-language-service) - An interface for building GraphQL language services for IDEs (_pending_)
 
 ### Editors
+
 * [js-graphql-intellij-plugin](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin) - GraphQL language support for IntelliJ IDEA and WebStorm, including Relay.QL tagged templates in JavaScript and TypeScript (_pending_)
 * [atom-language-graphql](https://github.com/rmosolgo/language-graphql) - GraphQL support for Atom text editor (_pending_)
 * [vscode-graphql](https://github.com/stephen/vscode-graphql) - GraphQL support for VSCode text editor
@@ -135,9 +137,10 @@ In case if you have multiple endpoints use the following syntax:
 ```
 
 ### Multi-project configuration (advanced)
-> TBD
 
-__Refer to [specification use-cases](specification.md#use-cases) for details__
+Coming soon
+
+<!-- __Refer to [specification use-cases](specification.md#use-cases) for details__ -->
 
 ## How it works
 
@@ -145,15 +148,15 @@ This project aims to be provide a unifying configuration file format to configur
 
 Additional to the format specification, it provides the [`graphql-config`](#graphql-config-api) library, which is used by [all supported tools and editor plugins](#supported-by). The library reads your provided configuration and passes the actual GraphQL schema along to the tool which called it.
 
-
 ## `graphql-config` API
+
 [![Build Status](https://travis-ci.org/graphcool/graphql-config.svg?branch=master)](https://travis-ci.org/graphcool/graphql-config) [![npm version](https://badge.fury.io/js/graphql-config.svg)](https://badge.fury.io/js/graphql-config)
 
 Here are very basic examples of how to use `graphql-config` library.
 
 You can find **[the detailed documentation here](docs/)**
 
-### getGraphQLProjectConfig
+### `getGraphQLProjectConfig`
 
 **NOTE:** if your tool works on per-file basis (e.g. editor plugin, linter, etc) use
 [`getGraphQLConfig`](#getGraphQLConfig) function
@@ -168,7 +171,7 @@ const schema = config.getSchema()
 // use schema for your tool/plugin
 ```
 
-### getGraphQLConfig
+### `getGraphQLConfig`
 
 `getGraphQLConfig` should be used by tools that work on per-file basis (editor plugins,
 linters, etc.)
