@@ -1,22 +1,18 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">🗂</p>
+# Overview
 
-# GraphQL Import
-
-**Easily compose GraphQL Schemas**
+## Description
 
 You may want to split a schema definition into multiple files in large applications, `graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
 
+> **Note**:   graphql-import` currently uses a custom syntax based on SDL comments! The GraphQL working group currently debates including a proper import syntax into the offical GraphQL specification, more info [here](https://github.com/graphql/graphql-wg/blob/master/notes/2018-02-01.md#present-graphql-import).
+
 ## Features
 
-🍺 Import specific types: `# import A from 'schema.graphql'`
-
-🍻 Import multiple types: `# import A, B, C from 'schema.graphql'`
-
-✳️ Import all types: `# import * from 'schema.graphql'`
-
-🌲 Import root fields: `# import Query.* from 'schema.graphql'`
-
-🛤 Relative paths: `# import Post from "../database/schema.graphql"`
+- Import specific types: `# import A from 'schema.graphql'`
+- Import multiple types: `# import A, B, C from 'schema.graphql'`
+- Import all types: `# import * from 'schema.graphql'`
+- Import root fields: `# import Query.* from 'schema.graphql'`
+- Relative paths: `# import Post from "../database/schema.graphql"`
 
 ## Install
 
