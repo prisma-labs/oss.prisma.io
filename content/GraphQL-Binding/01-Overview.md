@@ -1,6 +1,6 @@
-<p align="center" style="font-size: 10rem; margin-bottom: 0;">🔗</p>
+# Overview
 
-# GraphQL Binding
+[View on GitHub](https://github.com/graphql-binding/graphql-binding)
 
 **Interact with GraphQL APIs with a convenient Javascript interface**
 
