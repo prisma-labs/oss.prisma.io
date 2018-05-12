@@ -10,6 +10,10 @@ The GraphQL binding API is extremely flexible, making them a perfect tool for us
 
 GraphQL bindings are particularly useful in combination with statically typed languages where IDEs and code editors can be configured such that they validate GraphQL requests at compile time and even provide auto-completion for them.
 
+One perspective to think of GraphQL bindings is as auto-generated SDKs for GraphQL APIs:
+
+![](../../assets/bindings.png)
+
 ## Use cases
 
 - GraphQL-based service-to-Service communication
