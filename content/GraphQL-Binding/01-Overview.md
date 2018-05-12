@@ -12,19 +12,13 @@ GraphQL bindings are particularly useful in combination with statically typed la
 
 ## Use cases
 
-🛰 GraphQL-based service-to-Service communication
-
-🔨 Building GraphQL gateways
-
-🤖 Composing GraphQL APIs as modular building blocks
-
-🔼 Implementing a custom GraphQL API on top of Prisma
-
-🏃‍♀️ Sharing runnable instances of GraphQL APIs
-
-🗒 Accessing GraphQL APIs from a script
-
-🛂 Implementing custom operations for an existing GraphQL API
+- GraphQL-based service-to-Service communication
+- Building GraphQL gateways
+- Composing GraphQL APIs as modular building blocks
+- Implementing a custom GraphQL API on top of Prisma
+- Sharing runnable instances of GraphQL APIs
+- Accessing GraphQL APIs from a script
+- Implementing custom operations for an existing GraphQL API
 
 ## Simple example
 
