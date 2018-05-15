@@ -1,6 +1,9 @@
 # OSS Documentation
 
-<p align="center"><a href="https://oss.prisma.io"><img src="https://imgur.com/IMU2ERq.png" alt="Prisma" height="170px"></a></p>
+Docs for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
+
+![](https://imgur.com/IMU2ERq.png)
+
 
 ## Libraries
 
