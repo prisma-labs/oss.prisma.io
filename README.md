@@ -1,10 +1,8 @@
 # OSS Documentation
 
-<!-- [![](./assets/view-on-github.png)](https://github.com/graphcool/graphql-config) -->
-
 Docs for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
 
-**TODO: Add We ❤️ Open-Source" banner here**
+<p align="center"><a href="https://oss.prisma.io"><img src="https://imgur.com/IMU2ERq.png" alt="Prisma" height="170px"></a></p>
 
 ## Libraries
 
