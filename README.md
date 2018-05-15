@@ -2,9 +2,6 @@
 
 Docs for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
 
-![](https://imgur.com/IMU2ERq.png)
-
-
 ## Libraries
 
 <!-- - **GraphQL CLI** ([Docs](./content/GraphQL-CLI/01-Overview.md) | [GitHub](https://github.com/graphql-cli/graphql-cli)): Universal CLI for GraphQL projects
