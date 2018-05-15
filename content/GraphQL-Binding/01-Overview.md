@@ -1,10 +1,6 @@
 # Overview
 
-View the `graphql-binding` repository on GitHub.
-
 <a href="https://github.com/graphql-binding/graphql-binding"><img src="https://imgur.com/fTa1vMv.png" alt="Prisma" height="36px"></a>
-
-<!-- [![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding) -->
 
 ## Description
 

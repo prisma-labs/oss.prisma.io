@@ -1,6 +1,6 @@
 # Overview
 
-[**View on GitHub**](https://github.com/graphql-cli/graphql-cli)
+<a href="https://github.com/graphql-cli/graphql-cli"><img src="https://imgur.com/fTa1vMv.png" alt="Prisma" height="36px"></a>
 
 ## Description
 
