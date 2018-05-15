@@ -1,6 +1,6 @@
 # Overview
 
-[**View on GitHub**](https://github.com/graphql-binding/graphql-binding)
+[![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
 
 ## Description
 
