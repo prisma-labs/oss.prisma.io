@@ -1,4 +1,4 @@
-# OSS Documentation
+# Prisma OSS Documentation
 
 Docs for the open-source libraries maintained by the [Prisma](https://www.prisma.io) community.
 
