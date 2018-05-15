@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "prepare": "gitbook instal && cp -a node_modules/highlight.js/. ~/.gitbook/versions/3.2.3/node_modules/highlight.js/",
+    "prepare": "gitbook install && cp -a node_modules/highlight.js/. ~/.gitbook/versions/3.2.3/node_modules/highlight.js/",
     "build": "npm run prepare && gitbook build",
     "start": "npm run prepare && gitbook serve"
   },
