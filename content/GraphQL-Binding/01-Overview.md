@@ -1,6 +1,8 @@
 # Overview
 
-[![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding)
+<p align="center"><a href="https://github.com/graphql-binding/graphql-binding"><img src="../assets/view-on-github.png" alt="Prisma" height="50"></a></p>
+
+<!-- [![](../assets/view-on-github.png)](https://github.com/graphql-binding/graphql-binding) -->
 
 ## Description
 
