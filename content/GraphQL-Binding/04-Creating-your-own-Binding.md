@@ -104,9 +104,9 @@ The `mutation` property represents the fields of the `Mutation` type from the ab
 
 The `subscription` property represents the fields of the `Subscription` type from the above GraphQL schema.
 
-    ```ts
-  userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) =>  Promise<AsyncIterator<any>>
-    ```
+```ts
+userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) =>  Promise<AsyncIterator<any>>
+```
 
 #### Generating TypeScript type definitions for the `UserServiceBinding` class
 
