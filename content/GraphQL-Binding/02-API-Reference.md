@@ -219,6 +219,33 @@ Exposes all the mutations of the GraphQL API that is abstracted by this binding.
 
 Exposes all the subscriptions of the GraphQL API that is abstracted by this binding.
 
+## Utils
+
+#### `addFragmentToInfo`
+
+```ts
+addFragmentToInfo(info: GraphQLResolverInfo, fragment: string): GraphQLResolverInfo
+```
+
+Can be used to ensure that specific fields are included in the `info` object passed into the bindings.
+
+**Example: Ensure the binding fetches the `email` field from the `User`**.
+
+```ts
+import {addFragmentToInfo} from 'graphql-binding'
+
+async findUser(parent, args, context, info) {
+  const user = await binding.user({ id: args.id }, context, addFragmentToInfo(info, 'fragment EnsureEmail on User { email }'))
+
+  if (blackList.includes(user.email)) {
+    throw new Error('This user is blocked')
+  }
+
+  return user
+}
+```
+
+
 <!-- ### Methods
 
 // TODO
