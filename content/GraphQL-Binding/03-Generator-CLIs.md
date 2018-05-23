@@ -85,7 +85,7 @@ Usage: prisma-binding -i [input] -l [language] -b [outputBinding]
 Options:
   --help                Show help                                      [boolean]
   --version             Show version number                            [boolean]
-  --input, -i           Path to prisma.hgr file                        [string] [required]
+  --input, -i           Path to prisma.graphql file                    [string] [required]
   --language, -l        Language of the generator. Available languages:
                         typescript, javascript                         [string] [required]
   --outputBinding, -b   Output binding. Example: binding.ts            [string] [required]
