@@ -6,7 +6,7 @@
   * [Common Workflows](./content/GraphQL-CLI/04-Common-Workflows.md)
 * [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
   * [API Reference](./content/GraphQL-Binding/02-API-Reference.md)
-  * [Generator CLI](./content/GraphQL-Binding/03-Generator-CLI.md)
+  * [Generator CLIs](./content/GraphQL-Binding/03-Generator-CLIs.md)
   * [Creating your own Binding](./content/GraphQL-Binding/04-Creating-your-own-Binding.md)
 * [GraphQL Yoga](./content/GraphQL-Yoga/01-Overview.md)
   * [API Reference](./content/GraphQL-Yoga/02-API-Reference.md)
