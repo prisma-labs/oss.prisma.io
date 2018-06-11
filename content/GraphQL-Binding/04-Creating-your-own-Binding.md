@@ -38,7 +38,7 @@ Here's what that could look like:
 
 ```js
 const fetch = require('node-fetch')
-const { Delegate } = require('graphql-binding')
+const { Binding } = require('graphql-binding')
 const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
 const typeDefs = require('./user-service.graphql')
