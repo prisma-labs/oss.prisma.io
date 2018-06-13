@@ -8,6 +8,7 @@
   * [Schema Handling](./content/GraphQL-CLI/06-Schema-Handling.md)
   * [Schema Diff](./content/GraphQL-CLI/07-Schema-Diff)
   * [Codegen](./content/GraphQL-CLI/08-Codegen.md)
+  * [Lint](./content/GraphQL-CLI/09-Lint.md)
 * [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
   * [API Reference](./content/GraphQL-Binding/02-API-Reference.md)
   * [Generator CLIs](./content/GraphQL-Binding/03-Generator-CLIs.md)
