@@ -8,4 +8,4 @@
 
 1. [Codegen](./08-Codegen.md)
 
-1. [Lint](./09-Codegen.md)
+1. [Lint](./09-Lint.md)
