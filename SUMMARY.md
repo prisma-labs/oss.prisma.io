@@ -6,7 +6,7 @@
   * [Common Workflows](./content/GraphQL-CLI/04-Common-Workflows.md)
   * [Boilerplates](./content/GraphQL-CLI/05-Boilerplates.md)
   * [Schema Handling](./content/GraphQL-CLI/06-Schema-Handling.md)
-  * [Schema Diff](./content/GraphQL-CLI/07-Schema-Diff)
+  * [Schema Diff](./content/GraphQL-CLI/07-Schema-Diff.md)
   * [Codegen](./content/GraphQL-CLI/08-Codegen.md)
   * [Lint](./content/GraphQL-CLI/09-Lint.md)
 * [GraphQL Binding](./content/GraphQL-Binding/01-Overview.md)
