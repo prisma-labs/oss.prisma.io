@@ -118,7 +118,7 @@ Note that the CLI requires you to make an executable instance of the GraphQL sch
 const fetch = require('node-fetch')
 const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.grahpql)
+const typeDefs = require('./user-service.graphql')
 
 // Create the `HttpLink` required for the remote executable schema
 const endpoint = `https://example.org/user-service`
