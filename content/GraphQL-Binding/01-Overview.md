@@ -77,7 +77,7 @@ yarn add graphql-binding-users
 npm install graphql-binding-users
 ```
 
-You can learn how to create your own binding [here](./04-Creating-your-own-Binding.md)).
+To see the code for this example binding, you can view that [here](https://github.com/abhiaiyer91/graphql-binding-users). You can learn how to create your own binding [here](./04-Creating-your-own-Binding.md)).
 
 Here are three scenarios how this binding could be used:
 
