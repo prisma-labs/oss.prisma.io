@@ -24,19 +24,21 @@ type User {
 }
 ```
 
-Assume the corresponding GraphQL API is deployed to this URL: `https://example.org/user-service`
+Assume the GraphQL API above is deployed to this URL: `https://example.org/user-service`
 
 ## The `Delegate` class
+
+The `Delegate` class is a binding instance that gives you a lower level API to make GraphQL requests to a GraphQL server.
 
 ### Constructor
 
 ```ts
-constructor({schema, fragmentReplacements, before}: BindingOptions)
+constructor({ schema, fragmentReplacements, before }: BindingOptions)
 ```
 
 Creates a new instance of `Delegate`.
 
-- `schema` (required): An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted.
+- `schema` (required): An executable instance of a [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
 - `fragmentReplacements`: A GraphQL fragment that's applied to each query, subscription or mutation sent to the abstracted API.
 - `before`: A function that's executed _before_ a query, mutation or subscription request is sent to the abstracted API.
 
@@ -60,11 +62,7 @@ const before = () => console.log(`Sending a request to the GraphQL API ...`)
 const delegate = new Delegate({ schema, before })
 ```
 
-### Properties
-
-#### `schema`
-
-An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#graphqlschema) which represents the API that should be abstracted. You can create such an instance by using the `makeExecutableSchema` or `makeRemoteExecutableSchema` functions from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library. Learn more [here](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e).
+In this example, we create a new instance of the `Delegate` class. First we take our remote endpoint and make an `HttpLink` which creates an `HTTP` transport for this binding. This means all requests to our GraphQL API are transported via `HTTP`. Next we make a `remote` schema, meaning the schema and it's API's exist on a remote server. The `before` function is unique to the `Delegate` class. Use this to execute code _prior_ to a GraphQL request.
 
 ### Methods
 
@@ -74,7 +72,7 @@ An executable instance of [`GraphQLSchema`](http://graphql.org/graphql-js/type/#
 before: () => void
 ```
 
- A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the `link` that's used to reach the API, implement analytics features or add a logging statement before each API request.
+A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the `link` that's used to reach the API, implement analytics features or add a logging statement before each API request.
 
 #### `request`
 
@@ -84,10 +82,10 @@ request<T = any>(query: string, variables?: {
 }): Promise<T>;
 ```
 
-`request` allows to send a GraphQL query / mutation to the GraphQL API that's abstracted by this binding. It is a proxy for `request` from `graphql-request`.
+`request` allows you to send a GraphQL query / mutation to the GraphQL API abstracted by this binding. It is a direct proxy for `request` from `graphql-request`, a library that enables a low level request pattern for GraphQL servers using `fetch`.
 
 - `query` (required): A string that contains the query or mutation
-- `variables` (optional): Any variables that are defined in the `query` string
+- `variables` (optional): All variables that are defined in the `query` string
 
 **Example: Sending a `createUser` mutation to the API**
 
@@ -112,7 +110,9 @@ delegate(operation: QueryOrMutation, fieldName: string, args: {
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<any>;
 ```
 
-`delegate` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a query or mutation to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
+`delegate` allows you to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a query or mutation to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
+
+##### Properties
 
 - `operation` (required): Specifies whether the root field that's targeted by the delegation is query or mutation.
   - Possible values: `query`, `mutation`
@@ -121,7 +121,7 @@ delegate(operation: QueryOrMutation, fieldName: string, args: {
 - `infoOrQuery` (optional): Either a string or the `info` object - in any case this specifies the selection set for the operation which is send to the GraphQL API that's abstract by this binding.
   - If not provided, the selection set will contain all scalar fields of the requested type except for those with required arguments.
 - `options` (optional): The `options` object can have two fields:
-  - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`. // TODO
+  - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`.
   - `context` (optional): Allows to pass additional information to the GraphQL API that's abstracted.
 
 **Example: Hardcode the selection set as a string:**
@@ -148,6 +148,7 @@ const Mutation = {
       `mutation`,
       `createUser`,
       args,
+      // passing the info AST from the parent resolver
       info
     )
   }
@@ -164,32 +165,34 @@ delegateSubscription(fieldName: string, args?: {
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
 ```
 
-`delegateSubscription` allows to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
+`delegateSubscription` allows you to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
 
-- `operation` (required): Specifies whether the root field that's targeted by the delegation is query or mutation.
-  - Possible values: `query`, `mutation`
+##### Properties
+
 - `fieldName` (required): The name of the root field that's targeted by the delegation.
 - `args` (required): Any arguments to be passed to the root field that's targeted by the delegation.
 - `infoOrQuery`: Either a string or the `info` object - in any case this specifies the selection set for the operation which is send to the GraphQL API that's abstract by this binding.
-- `options`: TODO
+- `options` (optional): The `options` object can have two fields:
+  - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`.
+  - `context` (optional): Allows to pass additional information to the GraphQL API that's abstracted.
 
-**Example: Hardcode the selection set as a string:**
+**Example: Selection set based on the `info` object inside a GraphQL resolver**:
 
 ```js
-const selectionSet = `{ id name }`
-userServiceDelegate.delegateSubscription(
-  `userCreated`,
-  {},
-  selectionSet
-)
-// TODO -> what to do with the AsyncIterator in the returned Promise?
+const Subscription = {
+  userCreatedSub: (parent, args, context, info) => {
+    return userServiceDelegate.delegateSubscription(
+      `userCreated`,
+      args,
+      // passing the info AST from the parent resolver
+      info,
+      {
+        context
+      }
+    )
+  }
+}
 ```
-
-<!-- **Example: Dynamic selection set based on the `info` object inside a GraphQL resolver**:
-
-```js
-// TODO
-``` -->
 
 > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
@@ -219,8 +222,6 @@ Exposes all the mutations of the GraphQL API that is abstracted by this binding.
 
 Exposes all the subscriptions of the GraphQL API that is abstracted by this binding.
 
-## Utils
-
 #### `addFragmentToInfo`
 
 ```ts
@@ -231,27 +232,16 @@ Can be used to ensure that specific fields are included in the `info` object pas
 
 **Example: Ensure the binding fetches the `email` field from the `User`**.
 
-```ts
-import {addFragmentToInfo} from 'graphql-binding'
+```js
+import userBinding from 'graphql-binding-users'
+import { addFragmentToInfo } from 'graphql-binding'
 
 async findUser(parent, args, context, info) {
-  const user = await binding.user({ id: args.id }, context, addFragmentToInfo(info, 'fragment EnsureEmail on User { email }'))
-
-  if (blackList.includes(user.email)) {
-    throw new Error('This user is blocked')
-  }
+  const user = await userBinding.query.user({ id: args.id }, addFragmentToInfo(info, 'fragment EnsureEmail on User { email }'), { context })
 
   return user
 }
 ```
-
-
-<!-- ### Methods
-
-// TODO
-
-> should `buildMethods`, `buildQueryMethods` and `buildSubscriptionMethods` even be exposed? when would you want to call them?
-> I guess after `super.schema` has been changed you'd want to call them? is that a use case we should document? -->
 
 ## Understanding `Options`
 
