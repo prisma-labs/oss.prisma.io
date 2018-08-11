@@ -133,34 +133,28 @@ When responding to webhooks from 3rd party services, bindings are useful to acce
 
 For this example, consider an application which responds to webhooks from a service that has its own user accounts system. In this service, the system sends a HTTP `POST` whenever a new user is created and we want to add that user to our database.
 
-```js
+<div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe src="https://glitch.com/embed/#!/embed/holy-shad?path=server.js&previewSize=0&sidebarCollapsed=true" alt="holy-shad on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
+</div>
 
-const express = require('express')
+To test out a webhook against this Glitch example you can run the following:
 
-const app = express()
-
-const userBinding = require('graphql-binding-users').default;
-
-app.post('/users/created', function (req) {
-  const name = req.body.name;
-
-  // Create a new `User`
-  userBinding.mutation
-    .createUser(
-      {
-        name: 'Alice',
-      },
-      `{ id, name }`,
-    )
-    .then(({ id, name }) => console.log(`The ID of the created user is: ${id} and the name is ${name}`))
-});
+```sh
+curl -d '{"name": "Andy"}' -H "Content-Type: application/json" -X POST https://holy-shad.glitch.me/users/created
 ```
+
+An example response from running this command is below:
+
+```sh
+The ID of the created user is: cjkpu8tboo6b00b77sdbnaii5 and the name is Andy
+```
+
 
 ### 3. Usage in a GraphQL gateway
 
 When building gateways for GraphQL-based microservices, bindings are especially helpful. In the previous example, we have demonstrated the API where the _selection set_ for the constructed query is passed as a string. For this use case, the binding API allows to pass on the `info` argument of GraphQL resolvers.
 
-For this example, consider the `graphql-binding-users` binding representing the SDK of a GraphQL microservice and assume you are now building a GraphQL gateway layer on top of it to adjust the functionality. Let's say we want to add a search feature to the `users` query and also generate random names for the `User`s instead of letting them choose their own names.
+For this example, consider the `graphql-binding-example` binding representing the SDK of a GraphQL microservice and assume you are now building a GraphQL gateway layer on top of it to adjust the functionality. Let's say we want to generate a `User` from an allowed list of names:
 
 This means the gateway layer will have the following schema:
 
@@ -175,37 +169,19 @@ type Query {
 }
 
 type Mutation {
-  createUserWithRandomName: User!
+  createUserWithAllowedName: User!
 }
 ```
 
-Now, when implementing the resolvers for this schema, you're going to delegate the queries to the underlying GraphQL microservice - using the binding instance from the `'graphql-binding-users'` package.
+Now, when implementing the resolvers for this schema, you're going to delegate the queries to the underlying GraphQL microservice - using the binding instance from the `'graphql-binding-example'` package.
 
-```js
-const userBinding = require('graphql-binding-users').default
-const generateName = require('sillyname')
+<div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe src="https://glitch.com/embed/#!/embed/twilight-beauty?path=server.js&sidebarCollapsed=true" alt="twilight-beauty on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
+</div>
 
-const resolvers = {
-  Query: {
-    user: async (parent, args, context, info) => {
-      const users = await userBinding.query.users({}, info)
-      return users.find(user => user.id === args.id)
-    },
-  },
-  Mutation: {
-    createUserWithRandomName: (parent, args, context, info) => {
-      const sillyName = generateName()
-      return userBinding.mutation.createUser(
-        {
-          name: sillyname,
-        },
-        info,
-      )
-  }
-}
-```
+Play around with the hosted playground to see the binding in action!
 
-For the `users` and `createUserWithRandomName` resolvers, the binding will behave exactly like in the previous example and construct a GraphQL query/mutation to send to the API.
+For the `user` and `createUserWithAllowedName` resolvers, the binding will behave exactly like in the previous example and construct a GraphQL query/mutation to send to the API.
 
 The big difference to the previous example with the simple Node script is that now the selection set is not _hardcoded_ any more. Instead, it is provided through the [`info`](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) object of the incoming query/mutation. The `info` object carries the [abstract syntax tree](https://medium.com/@cjoudrey/life-of-a-graphql-query-lexing-parsing-ca7c5045fad8) (AST) of the incoming GraphQL query, meaning it knows the requested fields as well as any arguments and can simply pass them along to the underlying GraphQL API - this is called query [delegation](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405).
 
