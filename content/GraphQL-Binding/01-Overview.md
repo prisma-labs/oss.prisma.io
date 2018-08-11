@@ -85,10 +85,11 @@ Here are three scenarios how this binding could be used:
 
 Inside a Node script, you could install the `graphql-binding-example` via `npm` or `yarn` and then use it inside the script:
 
-<!-- Copy and Paste Me -->
+
 <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
   <iframe src="https://glitch.com/embed/#!/embed/gem-darkness?path=server.js&previewSize=0&sidebarCollapsed=true" alt="gem-darkness on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
 </div>
+
 
 In this example, `createUser` takes two arguments:
 
@@ -107,13 +108,10 @@ mutation {
 
 Similarly, you could write script that sends the `users` query via the invocation of a binding function:
 
-```js
-const userBinding = require('graphql-binding-users').default
+<div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe src="https://glitch.com/embed/#!/embed/boulder-earwig?path=server.js&previewSize=0&sidebarCollapsed=true" alt="boulder-earwig on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
+</div>
 
-// Retrieve all `User`s
-userBinding.query.users({}, `{ id name }`)
-  .then(users => console.log(`Retrieved all users: ${users}`))
-```
 
 This time, no arguments are being passed and the selection set asks for the `id` and the `name` of the `User`s being returned.
 
