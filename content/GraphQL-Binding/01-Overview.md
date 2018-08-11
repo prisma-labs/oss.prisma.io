@@ -113,6 +113,7 @@ Similarly, you could write script that sends the `users` query via the invocatio
 </div>
 
 
+
 This time, no arguments are being passed and the selection set asks for the `id` and the `name` of the `User`s being returned.
 
 The binding function therefore constructs and sends the following query to the GraphQL server:
