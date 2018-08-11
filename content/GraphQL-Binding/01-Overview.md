@@ -69,35 +69,26 @@ The server's API accepts two operations:
 - A query to retrieve all `User`s
 - A mutation to create a new `User`
 
-Now install the package `graphql-binding-users` through NPM or yarn:
+Now install the package `graphql-binding-example` through NPM or yarn:
 
 ```sh
-yarn add graphql-binding-users
+yarn add graphql-binding-example
 
-npm install graphql-binding-users
+npm install graphql-binding-example
 ```
 
-To see the code for this example binding, you can view that [here](https://github.com/abhiaiyer91/graphql-binding-users). You can learn how to create your own binding [here](./04-Creating-your-own-Binding.md)).
+To see the code for this example binding, you can view that [here](https://github.com/graphql-binding/graphql-binding-example-service). You can learn how to create your own binding [here](./04-Creating-your-own-Binding.md)).
 
 Here are three scenarios how this binding could be used:
 
 ### 1. Usage in a simple Node script
 
-Inside a Node script, you could install the `graphql-binding-users` via `npm` or `yarn` and then use it inside the script:
+Inside a Node script, you could install the `graphql-binding-example` via `npm` or `yarn` and then use it inside the script:
 
-```js
-const userBinding = require('graphql-binding-users').default;
-
-// Create a new `User`
-userBinding.mutation
-  .createUser(
-    {
-      name: 'Alice',
-    },
-    `{ id, name }`,
-  )
-  .then(({ id, name }) => console.log(`The ID of the created user is: ${id} and the name is ${name}`))
-```
+<!-- Copy and Paste Me -->
+<div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe src="https://glitch.com/embed/#!/embed/gem-darkness?path=server.js&previewSize=0&sidebarCollapsed=true" alt="gem-darkness on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
+</div>
 
 In this example, `createUser` takes two arguments:
 
