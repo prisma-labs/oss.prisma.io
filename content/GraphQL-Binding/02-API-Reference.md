@@ -24,7 +24,7 @@ type User {
 }
 ```
 
-Assume the GraphQL API above is deployed to this URL: `https://example.org/user-service`
+The GraphQL API above is deployed to this URL: `https://graphql-binding-example-service-kcbreqbsbh.now.sh`
 
 ## The `Delegate` class
 
@@ -46,13 +46,34 @@ Creates a new instance of `Delegate`.
 
 ```js
 const fetch = require('node-fetch')
-const { Delegate } = require('graphql-binding')
+const { Delegate } = require('graphql-binding/dist/Delegate')
 const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.graphql')
+
+const typeDefs = `
+  type Query {
+    user(id: ID!): User
+    users: [User!]!
+  }
+
+  type Mutation {
+    createUser(name: String!): User!
+    updateUser(id: ID!, name: String!): User
+    deleteUser(id: ID!): User
+  }
+
+  type Subscription {
+    userCreated: User!
+  }
+
+  type User {
+    id: ID!
+    name: String!
+  }
+`
 
 // Create the remote schema
-const endpoint = `https://example.org/user-service`
+const endpoint = `https://graphql-binding-example-service-kcbreqbsbh.now.sh`
 const link = new HttpLink({ uri: endpoint, fetch })
 const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
 
@@ -94,12 +115,15 @@ const mutation = `
   mutation CreateUserMutation($name: String!) {
     createUser(name: $name) {
       id
+      name
     }
   }
 `
-const variables = { name: `Alice` }
-userServiceDelegate.request(query, variables)
-  .then(createUserResult => JSON.stringify(createUserResult))
+const variables = { name: `Andy` }
+
+delegate.request(mutation, variables)
+  .then(createUserResult => console.log(JSON.stringify(createUserResult)))
+  .catch((e) => { console.error(e) })
 ```
 
 #### `delegate`
@@ -127,35 +151,23 @@ delegate(operation: QueryOrMutation, fieldName: string, args: {
 **Example: Hardcode the selection set as a string:**
 
 ```js
-const args = { name: `Alice` }
-const selectionSet = `{ id }`
-userServiceDelegate.delegate(
+const args = { name: `Rowan` }
+const selectionSet = `{ id, name }`
+
+delegate.delegate(
   `mutation`,
   `createUser`,
   args,
   selectionSet
-).then(createUserResult => JSON.stringify(createUserResult))
+)
+  .then(createUserResult => console.log(JSON.stringify(createUserResult)))
+  .catch((e) => { console.error(e) })
 ```
 
-**Example: Dynamic selection set based on the `info` object inside a GraphQL resolver**:
+<div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe src="https://glitch.com/embed/#!/embed/silver-pilot?path=server.js&sidebarCollapsed=true" alt="silver-pilot on glitch" style="height: 100%; width: 100%; border: 0;"></iframe>
+</div>
 
-```js
-const Mutation = {
-  createUserWithRandomName: (parent, args, context, info) => {
-    const randomName = generateRandomName()
-    const args = { name: randomName }
-    return userServiceDelegate.delegate(
-      `mutation`,
-      `createUser`,
-      args,
-      // passing the info AST from the parent resolver
-      info
-    )
-  }
-}
-```
-
-> [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
 #### `delegateSubscription`
 
