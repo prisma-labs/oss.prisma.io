@@ -193,7 +193,7 @@ delegateSubscription(fieldName: string, args?: {
 ```js
 const Subscription = {
   userCreatedSub: (parent, args, context, info) => {
-    return userServiceDelegate.delegateSubscription(
+    return delegate.delegateSubscription(
       `userCreated`,
       args,
       // passing the info AST from the parent resolver
@@ -245,11 +245,13 @@ Can be used to ensure that specific fields are included in the `info` object pas
 **Example: Ensure the binding fetches the `email` field from the `User`**.
 
 ```js
-import userBinding from 'graphql-binding-users'
+import ExampleBinding from 'graphql-binding-example'
 import { addFragmentToInfo } from 'graphql-binding'
 
+const exampleBinding = new ExampleBinding()
+
 async findUser(parent, args, context, info) {
-  const user = await userBinding.query.user({ id: args.id }, addFragmentToInfo(info, 'fragment EnsureEmail on User { email }'), { context })
+  const user = await exampleBinding.query.user({ id: args.id }, addFragmentToInfo(info, 'fragment EnsureEmail on User { email }'), { context })
 
   return user
 }
@@ -264,10 +266,45 @@ The `Options` type has two fields:
 
 ### Transforms
 
-Coming soon
+Schema transforms are a tool for making modified copies of GraphQLSchema objects, while preserving the possibility of delegating back to original schema.
 
-<!-- > [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a) -->
+Transforms are useful when working with remote schemas, building GraphQL gateways, and working with GraphQL microservices.
+
+More information on `transforms` can be found [here](https://www.apollographql.com/docs/graphql-tools/schema-transforms.html)
+
 
 ### Context
 
-Coming soon
+In GraphQL APIs, context can be provided to every resolver that holds important contextual information like the currently logged in user, or access to a database. Utilizing context is extremely crucial for bindings to GraphQL servers that may inherit context from a HTTP request or encode user-specific information to the request.
+
+In the example below we pass through context from the incoming GraphQL resolver to the underlying binding.
+
+```js
+import ExampleBinding from 'graphql-binding-example'
+import { addFragmentToInfo } from 'graphql-binding'
+
+const exampleBinding = new ExampleBinding()
+
+async findUser(parent, args, context, info) {
+  const user = await exampleBinding.query.user({ id: args.id }, info, { context })
+  return user
+}
+```
+
+You could also stamp these values directly:
+
+```js
+import ExampleBinding from 'graphql-binding-example'
+import { addFragmentToInfo } from 'graphql-binding'
+
+const exampleBinding = new ExampleBinding()
+
+async findUser(parent, args, context, info) {
+  // For this request hardcode the user you want to call this api on behalf of.
+  const user = await exampleBinding.query.user({ id: args.id }, info, { context: {
+    ...context,
+    'userid': '4792742323',
+  }})
+  return user
+}
+```
