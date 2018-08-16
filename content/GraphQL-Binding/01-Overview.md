@@ -4,18 +4,23 @@
 
 ## Description
 
-A simple way to interact with a GraphQL API is to make an HTTP `POST` request to
-a GraphQL server:
-
-Using JavaScript's `fetch`:
+The most straightforward way to interact with a GraphQL API is to make an HTTP POST request to a GraphQL server, for example using JavaScript's fetch:
 
 ```js
 require('isomorphic-fetch');
 
+const query = `
+  query {
+    posts {
+      title
+    }
+  }
+`;
+
 fetch('https://1jzxrj179.lp.gql.zone/graphql', {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ query: '{ posts { title } }' }),
+  body: JSON.stringify({ query }),
 })
   .then(res => res.json())
   .then(res => console.log(res.data));
@@ -23,16 +28,12 @@ fetch('https://1jzxrj179.lp.gql.zone/graphql', {
 
 GraphQL bindings provide a convenient interface for interacting with a GraphQL
 API with your favorite programming language. Instead of sending queries as strings
-like we demonstrated above, you can invoke a binding function which constructs GraphQL requests and sends it to a GraphQL server for you.
+like we demonstrated above, you can invoke a binding function which constructs a GraphQL request and sends it to a GraphQL server for you.
 
-The API of a GraphQL binding is very flexible, making them the perfect tool for
-use cases like: accessing GraphQL APIs from scripts or webhooks, `service-to-service` communication in a microservice architecture, or building
-GraphQL API gateways.
+Bindings can be useful in combination with statically
+typed languages that IDEs and code editors to leverage tooling that can be configured in such a way that they validate GraphQL requests at compile time or even provide auto-completion for an advanced developer experience.
 
-To take it even further, bindings can be useful in combination with statically
-typed languages that IDEs and code editors to leverage tooling that can be configuredin such a way that they validate GraphQL requests at compile time or even provide auto-completion for an advanced developer experience.
-
-A perspective that onboards both new engineers and seasoned teams is to think of GraphQL bindings as an auto-generated SDK (software development kit) for GraphQL APIs.
+A perspective that onboards engineers is to think of GraphQL bindings as an auto-generated [SDK](https://en.wikipedia.org/wiki/Software_development_kit) for GraphQL APIs.
 
 ![](../../assets/bindings.png)
 
@@ -73,13 +74,13 @@ Now install the package `graphql-binding-example` through NPM or yarn:
 
 ```sh
 yarn add graphql-binding-example
-
+# or
 npm install graphql-binding-example
 ```
 
-To see the code for this example binding, you can view that [here](https://github.com/graphql-binding/graphql-binding-example-service). You can learn how to create your own binding [here](./04-Creating-your-own-Binding.md)).
+> You can find code for the `graphql-binding-example` [here](https://github.com/graphql-binding/graphql-binding-example-service). Learn how to create your own GraphQL binding [here](https://github.com/prisma/oss.prisma.io/blob/GraphQLBinding/content/GraphQL-Binding/04-Creating-your-own-Binding.md).
 
-Here are three scenarios how this binding could be used:
+In the following, we'll discuss three scenarios illustrating how the example binding can be used.
 
 ### 1. Usage in a simple Node script
 

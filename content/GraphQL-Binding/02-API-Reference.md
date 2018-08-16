@@ -83,7 +83,7 @@ const before = () => console.log(`Sending a request to the GraphQL API ...`)
 const delegate = new Delegate({ schema, before })
 ```
 
-In this example, we create a new instance of the `Delegate` class. First we take our remote endpoint and make an `HttpLink` which creates an `HTTP` transport for this binding. This means all requests to our GraphQL API are transported via `HTTP`. Next we make a `remote` schema, meaning the schema and it's API's exist on a remote server. The `before` function is unique to the `Delegate` class. Use this to execute code _prior_ to a GraphQL request.
+In this example, we create a new instance of the `Delegate` class. First we take our remote endpoint and make an `HttpLink` which creates an HTTP transport for this binding. This means all requests to our GraphQL API are transported via HTTP. Next we make a remote schema, meaning the schema and it's API's exist on a remote server. The `before` function is unique to the `Delegate` class. Use this to execute code _prior_ to a GraphQL request.
 
 ### Methods
 
@@ -93,7 +93,7 @@ In this example, we create a new instance of the `Delegate` class. First we take
 before: () => void
 ```
 
-A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the `link` that's used to reach the API, implement analytics features or add a logging statement before each API request.
+A function that's executed _before_ a query, mutation or subscription request is sent to the API. This applies to [`request`](#request), [`delegate`](#delegate) and [`delegateSubscription`](#delegateSubscription). This lets you for example modify the link that's used to reach the API, implement analytics features or add a logging statement before each API request.
 
 #### `request`
 
@@ -148,7 +148,7 @@ delegate(operation: QueryOrMutation, fieldName: string, args: {
   - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`.
   - `context` (optional): Allows to pass additional information to the GraphQL API that's abstracted.
 
-**Example: Hardcode the selection set as a string:**
+**Example: Hardcode the selection set as a string**
 
 ```js
 const args = { name: `Rowan` }
@@ -177,7 +177,7 @@ delegateSubscription(fieldName: string, args?: {
 }, infoOrQuery?: GraphQLResolveInfo | string, options?: Options): Promise<AsyncIterator<any>>;
 ```
 
-`delegateSubscription` allows you to [delegate](https://blog.graph.cool/graphql-schema-stitching-explained-schema-delegation-4c6caf468405) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
+`delegateSubscription` allows you to [delegate](https://www.prisma.io/blog/graphql-schema-stitching-explained-schema-delegation-4c6caf468405/) the execution of a subscription to the GraphQL API that's abstracted by this binding. This function is often used when building a GraphQL gateway layer.
 
 ##### Properties
 
@@ -188,7 +188,7 @@ delegateSubscription(fieldName: string, args?: {
   - `transforms` (optional): Allows to perform transformations on the `info` object or the `schema`.
   - `context` (optional): Allows to pass additional information to the GraphQL API that's abstracted.
 
-**Example: Selection set based on the `info` object inside a GraphQL resolver**:
+**Example: Selection set based on the `info` object inside a GraphQL resolver**
 
 ```js
 const Subscription = {
@@ -206,7 +206,7 @@ const Subscription = {
 }
 ```
 
-> [Learn more about the `info` object.](https://blog.graph.cool/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
+> [Learn more about the `info` object.](https://www.prisma.io/blog/graphql-server-basics-demystifying-the-info-argument-in-graphql-resolvers-6f26249f613a)
 
 #### `getAbstractResolvers`
 
@@ -266,16 +266,16 @@ The `Options` type has two fields:
 
 ### Transforms
 
-Schema transforms are a tool for making modified copies of GraphQLSchema objects, while preserving the possibility of delegating back to original schema.
+Schema transforms are a tool for making modified copies of `GraphQLSchema` objects, while preserving the possibility of delegating back to original schema.
 
-Transforms are useful when working with remote schemas, building GraphQL gateways, and working with GraphQL microservices.
+Transforms are useful when working with [remote schemas](https://www.prisma.io/blog/how-do-graphql-remote-schemas-work-7118237c89d7/), building GraphQL gateways, and working with GraphQL microservices.
 
 More information on `transforms` can be found [here](https://www.apollographql.com/docs/graphql-tools/schema-transforms.html)
 
 
 ### Context
 
-In GraphQL APIs, context can be provided to every resolver that holds important contextual information like the currently logged in user, or access to a database. Utilizing context is extremely crucial for bindings to GraphQL servers that may inherit context from a HTTP request or encode user-specific information to the request.
+In GraphQL APIs, `context` can be provided to every resolver that holds important contextual information like the currently logged in user, or access to a database. Utilizing `context` is extremely crucial for bindings to GraphQL servers that may inherit data from HTTP request headers or encode user-specific information to the request. You then can utilize this in each of your resolvers.
 
 In the example below we pass through context from the incoming GraphQL resolver to the underlying binding.
 
