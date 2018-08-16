@@ -11,6 +11,7 @@ Install with `npm`:
 ```sh
 npm install -g graphql-binding
 ```
+OR
 
 Install with `yarn`:
 
