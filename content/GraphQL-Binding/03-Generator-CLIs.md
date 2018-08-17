@@ -34,6 +34,26 @@ Options:
   --outputTypedefs, -t  Output type defs. Example: typeDefs.graphql    [string]
 ```
 
+### Generating a Binding
+
+We're going to generate a GraphQL binding for the following [schema](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/schema.js).
+
+```sh
+graphql-binding -i ./src/schema.js -l javascript -b binding.js
+```
+
+This will create a GraphQL Binding like [this](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/index.js)
+
+### Generating Type Definitions
+
+We can add the `-t` flag to our command to output type definitions in a `.graphql` file.
+
+```sh
+graphql-binding -i ./src/schema.js -l javascript -b binding.js -t typeDefs.graphql
+```
+
+This will create a  [`typeDefs.graphql`](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/typeDefs.graphql).
+
 ### Usage with GraphQL Config
 
 The `graphql-binding` CLI integrates with GraphQL Config. This means instead of passing arguments to the command, you can write a `.graphqlconfig.yml` file which will be read by the CLI.
@@ -53,13 +73,10 @@ projects:
             binding: mybinding.ts
 ```
 
-Invoking simply `graphql codegen` in a directory where the above `.graphqlconfig` is available is equivalent to invoking the following terminal command:
+Invoking `graphql codegen` in a directory where the above `.graphqlconfig` is available is equivalent to invoking the following terminal command:
 
 ```sh
-graphql-binding \
-  --language typescript \
-  --input schema.js \
-  --outputBinding mybinding.ts
+graphql-binding --language typescript --input schema.js --outputBinding mybinding.ts
 ```
 
 ## `prisma-binding`
@@ -71,6 +88,8 @@ Install with `npm`:
 ```sh
 npm install -g prisma-binding
 ```
+
+OR
 
 Install with `yarn`:
 
@@ -114,39 +133,7 @@ projects:
 Invoking simply `graphql codegen` in a directory where the above `.graphqlconfig` is available is equivalent to invoking the following terminal command:
 
 ```sh
-prisma-binding \
-  --language typescript \
-  --outputBinding mybinding.ts
-```
-
-### Upgrading from `prisma-binding` v1.X
-
- Versions lower than 2.0 of `prisma-binding` were based on the `graphql prepare` instead of the `graphql codegen` command. Here is how you need to update your Prisma project files to account for the changes:
-
- **prisma.yml**
-
-```yml
-# ... other properties
-
-hooks:
-  post-deploy:
-    - graphql get-schema
-    - graphql codegen
-```
-
-**.graphqlconfig.yml**
-
-```yml
-projects:
-  myapp:
-    schemaPath: src/generated/prisma.graphql
-    extensions:
-      prisma: prisma/prisma.yml
-      codegen:
-        - generator: prisma-binding
-          language: typescript
-          output:
-            binding: src/generated/prisma.ts
+prisma-binding --language typescript --outputBinding mybinding.ts
 ```
 
 ## Writing your own generator CLI
