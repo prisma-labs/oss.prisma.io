@@ -1,10 +1,8 @@
 # Creating your own Binding
 
-## Example
+## Mirroring a GraphQL API
 
-### Simple use case: Mirroring a GraphQL API
-
-The simplest form of a GraphQL binding simply _mirrors_ the GraphQL API that it was created for. Consider the following GraphQL schema defining CRUD operations for a `User` type:
+The simplest form of a GraphQL Binding _mirrors_ the GraphQL API that it was created for. Consider the following GraphQL schema defining CRUD operations for a `User` type:
 
 ```graphql
 type Query {
@@ -28,45 +26,45 @@ type User {
 }
 ```
 
-Assume the corresponding GraphQL API is deployed to this URL: `https://example.org/user-service`
+The GraphQL API above is deployed to this URL: `https://graphql-binding-example-service-kcbreqbsbh.now.sh`
 
 #### Extending the `Binding` class
 
-The most straightforward to create your own binding for this API is by turning the deployed GraphQL API into a [remote executable schema](https://blog.graph.cool/how-do-graphql-remote-schemas-work-7118237c89d7) using the `makeRemoteExecutableSchema` function from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
+To create your own binding for this API starts by turning the deployed GraphQL API into a [remote executable schema](https://blog.graph.cool/how-do-graphql-remote-schemas-work-7118237c89d7) using the `makeRemoteExecutableSchema` function from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
 
 Here's what that could look like:
 
 ```js
-const fetch = require('node-fetch')
-const { Binding } = require('graphql-binding')
-const { HttpLink } = require('apollo-link-http')
-const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.graphql')
+const fetch = require("node-fetch");
+const { Binding } = require("graphql-binding");
+const { HttpLink } = require("apollo-link-http");
+const { makeRemoteExecutableSchema } = require("graphql-tools");
+const typeDefs = require("./user-service.graphql");
 
-class UserServiceBinding extends Binding {
+class ExampleServiceBinding extends Binding {
   constructor() {
-
     // Create the `HttpLink` required for the remote executable schema
-    const endpoint = `https://example.org/user-service`
-    const link = new HttpLink({ uri: endpoint, fetch })
+    const endpoint = `https://graphql-binding-example-service-kcbreqbsbh.now.sh`;
+    const link = new HttpLink({ uri: endpoint, fetch });
 
     // Create the remote schema
-    const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
+    const schema = makeRemoteExecutableSchema({ link, schema: typeDefs });
 
     // Invoke the constructor of `Binding` with the remote schema
     super({
-      schema: schema,
-    })
+      schema: schema
+    });
   }
-
 }
 
-module.exports = UserServiceBinding
+module.exports = ExampleServiceBinding;
 ```
 
-The `constructor` of the `Binding` class (that's called with `super` in the above example) builds the functions that represent the queries, mutations and subscriptions which can be sent to the GraphQL API. Note that these functions effectively proxy the [`delegate`](./02-API-Reference.md#delegate) method, meaning all they do is invoke `delegate` with the corresponding `operation` and `fieldName` and passing on the `args`, `infoOrQuery` and `context` arguments (it is not possible to pass on `transforms`). It then attaches those functions to the `query`, `mutation` and `subscription` properties of the `Binding` class respectively.
+The `constructor` of the `Binding` class (that's called with `super` in the above example) builds the functions that represent the queries, mutations and subscriptions which can be sent to the GraphQL API.
 
-#### API of the `UserServiceBinding` class
+Note that these functions effectively proxy the [`delegate`](./02-API-Reference.md#delegate) method, meaning all they do is invoke `delegate` with the corresponding `operation` and `fieldName` and passing on the `args`, `info` and `context` arguments (it is not possible to pass on `transforms`). It then attaches those functions to the `query`, `mutation` and `subscription` properties of the `Binding` class respectively.
+
+#### API of the `ExampleServiceBinding` class
 
 The `query` property represents the fields of the `Query` type from the above GraphQL schema.
 
@@ -98,48 +96,48 @@ The `mutation` property represents the fields of the `Mutation` type from the ab
 
 - `mutation.deleteUser`:
 
-    ```ts
-    deleteUser: (args: <T = User | null>{ id: ID_Output }, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<T>
-    ```
+  ```ts
+  deleteUser: (args: <T = User | null>{ id: ID_Output }, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<T>
+  ```
 
 The `subscription` property represents the fields of the `Subscription` type from the above GraphQL schema.
 
     ```ts
-  userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) =>  Promise<AsyncIterator<any>>
-    ```
 
-#### Generating TypeScript type definitions for the `UserServiceBinding` class
+userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<AsyncIterator<any>>
+```
 
-Once you have implemented your `UserServiceBinding` class, the [`graphql-binding` CLI](./03-CLI.md) helps you to generate the TypeScript type definitions for it.
+#### Generating TypeScript definitions for the `ExampleServiceBinding` class
+
+Another way to implement your `ExampleServiceBinding` class is via [`graphql-binding` CLI](./03-CLI.md). Thi helps you to generate the TypeScript type definitions for it as well as the `Binding` class.
 
 Note that the CLI requires you to make an executable instance of the GraphQL schema available through a Node script. In this example, this Node script could look as follows:
 
 ```js
-const fetch = require('node-fetch')
-const { HttpLink } = require('apollo-link-http')
-const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.grahpql)
+const fetch = require("node-fetch");
+const { HttpLink } = require("apollo-link-http");
+const { makeRemoteExecutableSchema } = require("graphql-tools");
+const typeDefs = require("./user-service.grahpql");
 
 // Create the `HttpLink` required for the remote executable schema
-const endpoint = `https://example.org/user-service`
-const link = new HttpLink({ uri: endpoint, fetch })
+const endpoint = `https://graphql-binding-example-service-kcbreqbsbh.now.sh`;
+const link = new HttpLink({ uri: endpoint, fetch });
 
 // Create the remote schema
-const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
+const schema = makeRemoteExecutableSchema({ link, schema: typeDefs });
 
-module.exports = schema
+module.exports = schema;
 ```
 
-Assuming the above file is called `userServiceSchema.js`, you can invoke the `graphql-binding` CLI as follows:
+Assuming the above file is called `exampleService.js`, you can invoke the `graphql-binding` CLI as follows:
 
 ```sh
-graphql-binding \
-  --language typescript \
-  --input userServiceSchema.js \
-  --outputBinding userServiceTypings.ts
+graphql-binding --language typescript --input userServiceSchema.js --outputBinding userServiceTypings.ts
 ```
 
-For convenience, you can achieve the same by using the `codegen` command from the GraphQL CLI in combination with a `.graphqlconfig` file.
+#### Usage with GraphQL Config
+
+The `graphql-binding` CLI integrates with GraphQL Config. This means instead of passing arguments to the command, you can write a `.graphqlconfig.yml` file which will be read by the CLI.
 
 Assuming you have the following `.graphqlconfig` file available in your project:
 
@@ -157,27 +155,37 @@ projects:
 
 Now invoking the `graphql codegen` command has the same effect as using the `graphql-binding` CLI with the `language`, `input` and `outputBinding` arguments.
 
-#### Using the `UserServiceBinding` class
+```sh
+graphql-binding -l typescript -i schema.js -b mybinding.ts
+```
 
-Here a few examplary calls you can now make with your `UserServiceBinding` class:
+#### Using the `ExampleServiceBinding` class
+
+Here a few examplary calls you can now make with your `ExampleServiceBinding` class:
 
 ```js
-const userServiceBinding = new UserServiceBinding()
+const exampleServiceBinding = new ExampleServiceBinding();
 
 // Send the `user` query and retrieve the `name` of `User` with id `user-0`
-userServiceBinding.user({ id: `user-0` }, `{ name }`)
+exampleServiceBinding.query.user({ id: `user-0` }, `{ name }`);
 
 // Send the `users` query and retrieve the `id` and `name` of all retrieved `User`s
-userServiceBinding.users({}, `{ id name }`)
+exampleServiceBinding.query.users({}, `{ id name }`);
 
 // Send the `createUser` mutation and retrieve the `id` of the newly created `User`
-userServiceBinding.createUser({ name: `Alice` }, `{ id }`)
+exampleServiceBinding.mutation.createUser({ name: `Alice` }, `{ id }`);
 
 // Send the `updateUser` mutation and retrieve the new `name` of the updated `User`
-userServiceBinding.updateUser({ id: 'user-0',  name: 'Bob' }, `{ name }`)
+exampleServiceBinding.mutation.updateUser(
+  { id: "user-0", name: "Bob" },
+  `{ name }`
+);
 
 // Send the `deleteUser` mutation and retrieve the `id` and `name` of the deleted `User`
-userServiceBinding.updateUser({ id: 'user-0',  name: 'Bob' }, `{ id name }`)
+exampleServiceBinding.mutation.updateUser(
+  { id: "user-0", name: "Bob" },
+  `{ id name }`
+);
 ```
 
 #### Adding custom functionality to your binding
@@ -198,27 +206,105 @@ To add custom functionality to your binding, you need to extend your `Binding` s
 ```js
 class UserServiceBinding extends Binding {
   constructor() {
-
     // Create the `HttpLink` required for the remote executable schema
-    const endpoint = `https://example.org/user-service`
-    const link = new HttpLink({ uri: endpoint, fetch })
+    const endpoint = `https://graphql-binding-example-service-kcbreqbsbh.now.sh`;
+    const link = new HttpLink({ uri: endpoint, fetch });
 
     // Create the remote schema
-    const schema = makeRemoteExecutableSchema({ link, schema: typeDefs })
+    const schema = makeRemoteExecutableSchema({ link, schema: typeDefs });
 
     // Invoke the constructor of `Binding` with the remote schema
     super({
-      schema: schema,
-    })
+      schema: schema
+    });
   }
 
   async userExists(id) {
-    const result = await this.delegate(
-      'query',
-      'user',
-      { id }
-    )
-    return Boolean(result)
+    const result = await this.delegate("query", "user", { id });
+    return Boolean(result);
   }
 }
+```
+
+#### Using the `UserServiceBinding` class
+
+Here an examplary call you can now make with your `UserServiceBinding` class:
+
+```js
+const userServiceBinding = new UserServiceBinding();
+
+// Send the `userExists` method and retrieve a boolean if the user exists
+userServiceBinding.userExists("cjkpro9ugnyqb0b77mawk139e");
+```
+
+## Business Logic Bindings
+
+Another interesting implementation for GraphQL Bindings is server-side business logic.
+
+Imagine we had the following schema:
+
+```graphql
+type Query {
+  findUserById(id: ID!): User
+}
+
+type User {
+  id: ID!
+  name String
+}
+```
+
+Let's implement the `findUserById` query by encapsulating our database API. Below is an example of using Bindings to encapsulate a MongoDB operation:
+
+There are a lot of tools that help convert the GraphQL `info` parameter to your database model which can help make more efficient database operations.
+
+```js
+import graphqlMongodbProjection from "graphql-mongodb-projection";
+import typeDefs from "./user-db.grahpql";
+
+const resolvers = {
+  findUserById: async (root, { id }, { db }, info) => {
+    return await db
+      .collection("users")
+      .findOne({ _id: id }, graphqlMongodbProjection(info));
+  }
+};
+
+// Create the remote schema
+const schema = makeRemoteExecutableSchema({ resolvers, typeDefs });
+
+class UserDBBinding extends Binding {
+  constructor() {
+    // Invoke the constructor of `Binding` with the schema
+    super({
+      schema
+    });
+  }
+}
+```
+
+#### Using the `UserDBBinding` class
+
+Here an examplary call you can now make with your `UserServiceBinding` class:
+
+```js
+const userDBBinding = new UserDBBinding();
+
+// Retrieve
+import { MongoClient } from "mongodb";
+
+// Connect to the db
+MongoClient.connect("mongodb://localhost:27017/exampleDb").then(async db => {
+  const projection = `
+    {
+      id
+      name
+    }
+  `;
+  const user = await userDBBinding.query.findUserById({ id }, projection, {
+    context: {
+      db
+    }
+  });
+});
 ```
