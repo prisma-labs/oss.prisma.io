@@ -98,15 +98,15 @@ The `mutation` property represents the fields of the `Mutation` type from the ab
 
 - `mutation.deleteUser`:
 
-    ```ts
-    deleteUser: (args: <T = User | null>{ id: ID_Output }, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<T>
-    ```
+  ```ts
+  deleteUser: (args: <T = User | null>{ id: ID_Output }, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<T>
+  ```
 
 The `subscription` property represents the fields of the `Subscription` type from the above GraphQL schema.
 
-    ```ts
+  ```ts
   userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) =>  Promise<AsyncIterator<any>>
-    ```
+  ```
 
 #### Generating TypeScript type definitions for the `UserServiceBinding` class
 
@@ -118,7 +118,7 @@ Note that the CLI requires you to make an executable instance of the GraphQL sch
 const fetch = require('node-fetch')
 const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
-const typeDefs = require('./user-service.grahpql)
+const typeDefs = require('./user-service.grahpql')
 
 // Create the `HttpLink` required for the remote executable schema
 const endpoint = `https://example.org/user-service`
