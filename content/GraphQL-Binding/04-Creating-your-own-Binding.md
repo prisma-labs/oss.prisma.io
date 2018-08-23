@@ -30,7 +30,7 @@ The GraphQL API above is deployed to this URL: `https://graphql-binding-example-
 
 #### Extending the `Binding` class
 
-To create your own binding for this API starts by turning the deployed GraphQL API into a [remote executable schema](https://blog.graph.cool/how-do-graphql-remote-schemas-work-7118237c89d7) using the `makeRemoteExecutableSchema` function from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
+To create your own binding for this API, you start by turning the deployed GraphQL API into a [remote executable schema](https://www.prisma.io/blog/how-do-graphql-remote-schemas-work-7118237c89d7/) using the `makeRemoteExecutableSchema` function from the [`graphql-tools`](https://www.apollographql.com/docs/graphql-tools/) library and then use this remote schema to extend the `Binding` class from the `graphql-binding` package.
 
 Here's what that could look like:
 
@@ -156,7 +156,7 @@ projects:
 Now invoking the `graphql codegen` command has the same effect as using the `graphql-binding` CLI with the `language`, `input` and `outputBinding` arguments.
 
 ```sh
-graphql-binding -l typescript -i schema.js -b mybinding.ts
+graphql-binding --language typescript --input schema.js --outputBinding mybinding.ts
 ```
 
 #### Using the `ExampleServiceBinding` class
@@ -228,7 +228,7 @@ class UserServiceBinding extends Binding {
 
 #### Using the `UserServiceBinding` class
 
-Here an examplary call you can now make with your `UserServiceBinding` class:
+An examplary call you can now make with your `UserServiceBinding` class:
 
 ```js
 const userServiceBinding = new UserServiceBinding();
@@ -285,7 +285,7 @@ class UserDBBinding extends Binding {
 
 #### Using the `UserDBBinding` class
 
-Here an examplary call you can now make with your `UserServiceBinding` class:
+An examplary call you can now make with your `UserDBBinding` class:
 
 ```js
 const userDBBinding = new UserDBBinding();
