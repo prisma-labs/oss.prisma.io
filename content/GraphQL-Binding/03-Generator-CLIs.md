@@ -39,7 +39,7 @@ Options:
 We're going to generate a GraphQL binding for the following [schema](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/schema.js).
 
 ```sh
-graphql-binding -i ./src/schema.js -l javascript -b binding.js
+graphql-binding --input ./src/schema.js --language javascript --outputBinding binding.js
 ```
 
 This will create a GraphQL Binding like [this](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/index.js)
@@ -49,7 +49,7 @@ This will create a GraphQL Binding like [this](https://github.com/graphql-bindin
 We can add the `-t` flag to our command to output type definitions in a `.graphql` file.
 
 ```sh
-graphql-binding -i ./src/schema.js -l javascript -b binding.js -t typeDefs.graphql
+graphql-binding --input ./src/schema.js --language javascript --outputBinding binding.js --outputTypedefs typeDefs.graphql
 ```
 
 This will create a  [`typeDefs.graphql`](https://github.com/graphql-binding/graphql-binding-example-service/blob/master/src/typeDefs.graphql).
