@@ -46,7 +46,7 @@ This will create a GraphQL Binding like [this](https://github.com/graphql-bindin
 
 ### Generating Type Definitions
 
-We can add the `-t` flag to our command to output type definitions in a `.graphql` file.
+We can add the `--outputTypedefs` flag to our command to output type definitions in a `.graphql` file.
 
 ```sh
 graphql-binding --input ./src/schema.js --language javascript --outputBinding binding.js --outputTypedefs typeDefs.graphql
