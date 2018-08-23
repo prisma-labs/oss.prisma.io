@@ -35,11 +35,11 @@ To create your own binding for this API, you start by turning the deployed Graph
 Here's what that could look like:
 
 ```js
-const fetch = require("node-fetch");
-const { Binding } = require("graphql-binding");
-const { HttpLink } = require("apollo-link-http");
-const { makeRemoteExecutableSchema } = require("graphql-tools");
-const typeDefs = require("./user-service.graphql");
+const fetch = require('node-fetch');
+const { Binding } = require('graphql-binding');
+const { HttpLink } = require('apollo-link-http');
+const { makeRemoteExecutableSchema } = require('graphql-tools');
+const typeDefs = require('./user-service.graphql');
 
 class ExampleServiceBinding extends Binding {
   constructor() {
@@ -102,22 +102,21 @@ The `mutation` property represents the fields of the `Mutation` type from the ab
 
 The `subscription` property represents the fields of the `Subscription` type from the above GraphQL schema.
 
-    ```ts
-
-userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) => Promise<AsyncIterator<any>>
-```
+  ```ts
+  userCreated: (args: <T = User>{}, info?: GraphQLResolveInfo | string, context?: { [key: string]: any }) =>  Promise<AsyncIterator<any>>
+  ```
 
 #### Generating TypeScript definitions for the `ExampleServiceBinding` class
 
-Another way to implement your `ExampleServiceBinding` class is via [`graphql-binding` CLI](./03-CLI.md). Thi helps you to generate the TypeScript type definitions for it as well as the `Binding` class.
+Once you have implemented your `ExampleServiceBinding ` class, the [`graphql-binding` CLI](./03-CLI.md) helps you to generate the TypeScript type definitions for it.
 
 Note that the CLI requires you to make an executable instance of the GraphQL schema available through a Node script. In this example, this Node script could look as follows:
 
 ```js
-const fetch = require("node-fetch");
-const { HttpLink } = require("apollo-link-http");
-const { makeRemoteExecutableSchema } = require("graphql-tools");
-const typeDefs = require("./user-service.grahpql");
+const fetch = require('node-fetch');
+const { HttpLink } = require('apollo-link-http');
+const { makeRemoteExecutableSchema } = require('graphql-tools');
+const typeDefs = require('./user-service.grahpql');
 
 // Create the `HttpLink` required for the remote executable schema
 const endpoint = `https://graphql-binding-example-service-kcbreqbsbh.now.sh`;
@@ -177,13 +176,13 @@ exampleServiceBinding.mutation.createUser({ name: `Alice` }, `{ id }`);
 
 // Send the `updateUser` mutation and retrieve the new `name` of the updated `User`
 exampleServiceBinding.mutation.updateUser(
-  { id: "user-0", name: "Bob" },
+  { id: 'user-0', name: 'Bob' },
   `{ name }`
 );
 
 // Send the `deleteUser` mutation and retrieve the `id` and `name` of the deleted `User`
 exampleServiceBinding.mutation.updateUser(
-  { id: "user-0", name: "Bob" },
+  { id: 'user-0', name: 'Bob' },
   `{ id name }`
 );
 ```
@@ -220,7 +219,7 @@ class UserServiceBinding extends Binding {
   }
 
   async userExists(id) {
-    const result = await this.delegate("query", "user", { id });
+    const result = await this.delegate('query', 'user', { id });
     return Boolean(result);
   }
 }
@@ -234,7 +233,7 @@ An examplary call you can now make with your `UserServiceBinding` class:
 const userServiceBinding = new UserServiceBinding();
 
 // Send the `userExists` method and retrieve a boolean if the user exists
-userServiceBinding.userExists("cjkpro9ugnyqb0b77mawk139e");
+userServiceBinding.userExists('cjkpro9ugnyqb0b77mawk139e');
 ```
 
 ## Business Logic Bindings
@@ -259,13 +258,13 @@ Let's implement the `findUserById` query by encapsulating our database API. Belo
 There are a lot of tools that help convert the GraphQL `info` parameter to your database model which can help make more efficient database operations.
 
 ```js
-import graphqlMongodbProjection from "graphql-mongodb-projection";
-import typeDefs from "./user-db.grahpql";
+import graphqlMongodbProjection from 'graphql-mongodb-projection';
+import typeDefs from './user-db.grahpql';
 
 const resolvers = {
   findUserById: async (root, { id }, { db }, info) => {
     return await db
-      .collection("users")
+      .collection('users')
       .findOne({ _id: id }, graphqlMongodbProjection(info));
   }
 };
@@ -291,10 +290,10 @@ An examplary call you can now make with your `UserDBBinding` class:
 const userDBBinding = new UserDBBinding();
 
 // Retrieve
-import { MongoClient } from "mongodb";
+import { MongoClient } from 'mongodb';
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/exampleDb").then(async db => {
+MongoClient.connect('mongodb://localhost:27017/exampleDb').then(async db => {
   const projection = `
     {
       id

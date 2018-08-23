@@ -1,10 +1,10 @@
 # Overview
 
-<a href="https://github.com/graphcool/graphql-import"><img src="https://imgur.com/fTa1vMv.png" alt="Prisma" height="36px"></a>
+<a href="https://github.com/prisma/graphql-import"><img src="https://imgur.com/fTa1vMv.png" alt="Prisma" height="36px"></a>
 
 ## Description
 
-You may want to split a schema definition into multiple files in large applications, `graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also refered to as GraphQL modules).
+You may want to split a schema definition into multiple files in large applications, `graphql-import` is a package that allows importing &amp; exporting schema definitions in GraphQL SDL (also referred to as GraphQL modules).
 
 > **Note**: `graphql-import` currently uses a custom syntax based on SDL comments! The GraphQL working group currently debates including a proper import syntax into the offical GraphQL specification, more info [here](https://github.com/graphql/graphql-wg/blob/master/notes/2018-02-01.md#present-graphql-import).
 
@@ -14,6 +14,7 @@ You may want to split a schema definition into multiple files in large applicati
 - Import multiple types: `# import A, B, C from 'schema.graphql'`
 - Import all types: `# import * from 'schema.graphql'`
 - Import root fields: `# import Query.* from 'schema.graphql'`
+- Import root fields and all types: `# import Query.*, Mutation.*, * from 'schema.graphql'`
 - Relative paths: `# import Post from "../database/schema.graphql"`
 
 ## Install
@@ -36,7 +37,9 @@ const resolvers = {}
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 ```
 
-## Example
+## Examples
+
+### Import specific types
 
 Assume the following directory structure:
 
@@ -52,10 +55,8 @@ Assume the following directory structure:
 ```graphql
 # import Post from "posts.graphql"
 
-type App {
-  # test 1
+type Query {
   posts: [Post]
-  name: String
 }
 ```
 
@@ -84,9 +85,8 @@ type Comment {
 Running `console.log(importSchema('schema.graphql'))` produces the following output:
 
 ```graphql
-type App {
+type Query {
   posts: [Post]
-  name: String
 }
 
 type Post {
@@ -102,7 +102,86 @@ type Comment {
 }
 ```
 
-## Import from strings
+### Import root fields
+
+In the previous example you'd have a `schema.graphql` file that imports every specific type and then make a `Query` and `Mutation` type that lists all root fields. If you have many root fields, this can become hard to maintain. An alternative way is to use `Query` and `Mutation` in each file, so that your `schema.graphql` only has to import each file to create the schema.
+
+Assume the following directory structure: 
+
+```
+.
+├── schema.graphql
+├── posts.graphql
+└── users.graphql
+```
+
+
+`schema.graphql`
+
+```graphql
+# import Query.*, Mutation.* from "posts.graphql"
+# import Query.*, Mutation.* from "users.graphql"
+```
+
+`posts.graphql`
+
+```graphql
+type Post {
+  id: ID!
+  text: String!
+}
+
+type Query {
+  posts: [Post]
+}
+
+type Mutation {
+  deletePost(id: ID!): Post!
+}
+```
+
+`users.graphql`
+
+```graphql
+type User {
+  id: ID!
+  username: String!
+}
+
+type Query {
+  users: [User]
+}
+
+type Mutation {
+  deleteUser(id: ID!): User!
+}
+```
+
+Running `console.log(importSchema('schema.graphql'))` produces the following output:
+
+```graphql
+type Query {
+  posts: [Post]
+  users: [User]
+}
+
+type Mutation {
+  deletePost(id: ID!): Post!
+  deleteUser(id: ID!): User!
+}
+
+type Post {
+  id: ID!
+  text: String!
+}
+
+type User {
+  id: ID!
+  username: String!
+}
+```
+
+### Import from strings
 
 `graphql-import` supports loading schemas from memory instead of by reading files. You can pass objects instead of a filenames to `importSchema`.
 
