@@ -195,7 +195,7 @@ const commentsSchema = `
   }`
 
 const postsSchema = `
-  # import * from 'comments.graphql'
+  # import * from 'commentsSchema'
 
   type Post {
     comments: [Comment]
@@ -205,7 +205,7 @@ const postsSchema = `
   }`
 
 const appSchema = `
-  # import Post from "posts"
+  # import Post from "postsSchema"
 
   type App {
     # test 1
