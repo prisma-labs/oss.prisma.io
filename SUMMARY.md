@@ -26,3 +26,7 @@
   * [API Reference](./content/GraphQL-Request/02-API-Reference.md)
   * [Examples](./content/GraphQL-Request/03-Examples.md)
 * [graphqlgen](./content/graphqlgen/01-Overview.md)
+  * [Configuration](./content/graphqlgen/02-Configuration.md)
+  * [Generation](./content/graphqlgen/03-Generation.md)
+  * [Scaffolding Resolvers](./content/graphqlgen/04-Scaffolding-Resolvers.md)
+  * [Bootstrapping](./content/graphqlgen/05-Bootstrapping.md)
