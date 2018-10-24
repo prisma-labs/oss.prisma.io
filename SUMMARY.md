@@ -25,3 +25,4 @@
 * [GraphQL Request](./content/GraphQL-Request/01-Overview.md)
   * [API Reference](./content/GraphQL-Request/02-API-Reference.md)
   * [Examples](./content/GraphQL-Request/03-Examples.md)
+* [graphqlgen](./content/graphqlgen/01-Overview.md)
