@@ -1,7 +1,5 @@
 # Configuration: `graphqlgen.yml`
 
-> The `graphqlgen.yml`configuration file is only required for [Generation](#generation) and [Resolver scaffolding](#scaffolding). 
-
 ### Name
 
 The configuration file must be called **`graphqlgen.yml`**.
