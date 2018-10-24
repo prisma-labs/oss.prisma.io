@@ -123,9 +123,6 @@ The relevant properties from `graphqlgen.yml` for the Generation feature are:
 
 ### Example
 
-<Details><Summary>See full example</Summary>
-<br />
-
 #### Setup
 
 Assume you have the following minimal setup with three files:
@@ -269,8 +266,6 @@ export interface Resolvers {
 }
 ```
 
-</Details>
-
 ### Type Definitions
 
 This is required to make your resolvers type safe. Type definitions are generated for the resolvers' return values as well as for the first three resolver arguments:
@@ -337,9 +332,6 @@ The relevant properties from `graphqlgen.yml` for the Generation feature are:
 - `resolver-scaffolding` (required)
 
 ### Example
-
-<Details><Summary>See full example</Summary>
-<br />
 
 #### Setup
 
@@ -442,8 +434,6 @@ export const resolvers: Resolvers = {
 Note the following:
 
 - The paths in the `import` statements will likely need to be adjusted depending on your file structure.
-
-</Details>
 
 ## Bootstrapping
 
