@@ -49,8 +49,6 @@ context: ./src/types.ts:Context
 models:
   files:
     - ./src/generated/prisma-client/index.ts
-    - path: src/records.ts
-      defaultName: '${typeName}Record'
 
 output: ./src/generated/graphqlgen.ts
 
