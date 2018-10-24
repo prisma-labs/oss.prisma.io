@@ -123,8 +123,8 @@ The relevant properties from `graphqlgen.yml` for the Generation feature are:
 
 ### Example
 
-<Details>
-  <Summary>See full example</Summary>
+<Details><Summary>See full example</Summary>
+<br />
 
 #### Setup
 
@@ -338,8 +338,8 @@ The relevant properties from `graphqlgen.yml` for the Generation feature are:
 
 ### Example
 
-<Details>
-  <Summary>See full example</Summary>
+<Details><Summary>See full example</Summary>
+<br />
 
 #### Setup
 
