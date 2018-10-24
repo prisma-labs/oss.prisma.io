@@ -72,7 +72,8 @@ export interface User {
 language: typescript
 schema: ./src/schema.graphql
 models:
-  User: ./src/models.ts:User
+  files:
+    - ./src/models.ts
 output: ./src/generated/graphqlgen.ts
 resolver-scaffolding:
   output: ./src/tmp/
@@ -86,51 +87,51 @@ After running `$ graphqlgen` in your terminal, the following code will be genera
 **`./tmp/User.ts`**
 
 ```ts
-import { UserResolvers } from './src/generated/graphqlgen.ts'
+import { UserResolvers } from "../generated/graphqlgen";
 
 export const User: UserResolvers.Type = {
-  ...UserResolvers.defaultResolvers,
-}
+  ...UserResolvers.defaultResolvers
+};
 ```
 
 **`./tmp/Query.ts`**
 
 ```ts
-import { QueryResolvers } from './src/generated/graphqlgen.ts'
+import { QueryResolvers } from "../generated/graphqlgen";
 
 export const Query: QueryResolvers.Type = {
   ...QueryResolvers.defaultResolvers,
-  user: (parent, args) => null,
-}
+  user: (parent, args) => null
+};
 ```
 
 **`./tmp/Mutation.ts`**
 
 ```ts
-import { MutationResolvers } from './src/generated/graphqlgen.ts'
+import { MutationResolvers } from "../generated/graphqlgen";
 
 export const Mutation: MutationResolvers.Type = {
   ...MutationResolvers.defaultResolvers,
   createUser: (parent, args) => {
-    throw new Error('Resolver not implemented')
-  },
-}
+    throw new Error("Resolver not implemented");
+  }
+};
 ```
 
 **`./tmp/index.ts`**
 
 ```ts
-import { Resolvers } from './src/generated/graphqlgen.ts'
+import { Resolvers } from "../generated/graphqlgen";
 
-import { Query } from './Query'
-import { Mutation } from './Mutation'
-import { User } from './User'
+import { Query } from "./Query";
+import { Mutation } from "./Mutation";
+import { User } from "./User";
 
 export const resolvers: Resolvers = {
   Query,
   Mutation,
-  User,
-}
+  User
+};
 ```
 
 Note the following:
