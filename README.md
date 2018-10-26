@@ -12,7 +12,7 @@ Docs for the open-source libraries maintained by the [Prisma](https://www.prisma
 - GraphQL Middleware ([**Docs**](./content/GraphQL-Middleware/01-Overview.md) | [**GitHub**](https://github.com/prisma/graphql-middleware)): Middleware for GraphQL resolvers
 - GraphQL Playground ([**Docs**](./content/GraphQL-Playground/01-Overview.md) | [**GitHub**](https://github.com/prisma/graphql-playground)): Powerful GraphQL IDE
 - GraphQL Request ([**Docs**](./content/GraphQL-Request/01-Overview.md) | [**GitHub**](https://github.com/prisma/graphql-request)): Minimal GraphQL client in JavaScript
-- graphqlgen ([**Docs**](./content/graphqlgen/01-Overview.md) | [**GitHub**](https://github.com/prisma/graphqlgen)): GraphQL code generation CLI
+- graphqlgen ([**Docs**](https://oss.prisma.io/graphqlgen) | [**GitHub**](https://github.com/prisma/graphqlgen)): GraphQL code generation CLI
 
 ## Support
 
