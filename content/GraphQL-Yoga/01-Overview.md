@@ -23,7 +23,7 @@ GraphQL Yoga is based on the following libraries & tools:
 ## Features
 
 - GraphQL spec-compliant
-- File uploadgit st
+- File upload
 - GraphQL Subscriptions
 - TypeScript typings
 - GraphQL Playground
