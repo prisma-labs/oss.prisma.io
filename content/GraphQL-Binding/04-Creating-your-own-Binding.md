@@ -141,7 +141,7 @@ graphql-binding \
 
 For convenience, you can achieve the same by using the `codegen` command from the GraphQL CLI in combination with a `.graphqlconfig` file.
 
-Assuming you have the following `.graphqlconfig` file available in your project:
+Assuming you have the following `.graphqlconfig.yaml` file available in your project:
 
 ```yaml
 projects:
